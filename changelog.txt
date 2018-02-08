@@ -1,0 +1,14 @@
+Proletariat Mod
+Modified files:
+common/buildings.txt
+common/defines.txt
+history/provinces (any files that contain references to precious metals as well)
+technologies/
+
+
+02/07/18
+- Made all sphere members contribute 100% of their market to the sphere market = In: Common\Defines
+- Deleted all references of precious metals to prevent inflation  = In: History\Provinces and any other files that mention it
+- Deleted all loans to prevent deflation (interest is lost). = In: Common\Defines
+- Made all buildings faster to build. = In: Common\Buildings
+- Added each tech to boost +2% (or +0.02) = In: technologies\
