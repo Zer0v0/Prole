@@ -56,6 +56,7 @@ high_pressure_steam_engine = {
 	area = tech_power
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	rgo_goods_output = { coal = 0.05 }
 	rgo_goods_output = { iron = 0.05 }
@@ -107,6 +108,7 @@ compound_steam_engines = {
 	area = tech_power
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	rgo_goods_output = { coal = 0.1 }
 	rgo_goods_output = { iron = 0.1 }
@@ -158,6 +160,7 @@ steam_turbine = {
 	area = tech_power
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 
 	rgo_goods_output = { coal = 0.15 }
 	rgo_goods_output = { iron = 0.15 }
@@ -213,6 +216,7 @@ combustion_engine = {
 	area = tech_power
 	year = 1880
 	cost = 18000
+	increase_research = 0.04
 
 	rgo_goods_output = { coal = 0.15 }
 	rgo_goods_output = { iron = 0.15 }
@@ -264,6 +268,7 @@ electrical_power_generation = {
 	area = tech_power
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	rgo_goods_output = { coal = 0.15 }
 	rgo_goods_output = { iron = 0.15 }
@@ -355,6 +360,7 @@ interchangeable_parts = {
 	area = mechanization
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	factory_throughput = 0.05 
 	
@@ -405,6 +411,7 @@ semi_automatization = {
 	area = mechanization
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	factory_throughput = 0.05
 	
@@ -466,6 +473,7 @@ pneumatic_and_hydraulics = {
 	area = mechanization
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 	factory_throughput = 0.1
 	factory_cost = -0.1 
 	ai_chance = {
@@ -504,6 +512,7 @@ assembly_line = {
 	area = mechanization
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 	factory_throughput = 0.1
 	factory_cost = -0.1 
 	ai_chance = {
@@ -534,6 +543,7 @@ shift_work = {
 	area = mechanization
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	
 	rgo_output = 0.05
@@ -633,6 +643,7 @@ puddling = {
 	area = metallurgy
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 	
 	rgo_goods_output = {
 		coal = 0.3
@@ -736,6 +747,7 @@ hot_blast = {
 	area = metallurgy
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 	rgo_goods_output = {
 		coal = 0.4
 	}
@@ -817,6 +829,7 @@ bessemer_process = {
 	area = metallurgy
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 	rgo_goods_output = {
 		coal = 0.3
 	}
@@ -906,6 +919,7 @@ advanced_metallurgy = {
 	area = metallurgy
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 
 	rgo_goods_output = {
 		sulphur = 0.4
@@ -993,6 +1007,7 @@ electric_furnace = {
 	area = metallurgy
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	factory_goods_output = {
 		steel = 0.05 
@@ -1121,6 +1136,7 @@ early_railroad = {
 	area = tech_infrastructure
 	year = 1840
 	cost = 7200
+	increase_research = 0.02
 
 	max_railroad = 1
 	
@@ -1167,6 +1183,7 @@ iron_railroad = {
 	area = tech_infrastructure
 	year = 1850
 	cost = 10800
+	increase_research = 0.02
 
 	max_railroad = 1 
 	ai_chance = {
@@ -1201,6 +1218,7 @@ steel_railroad = {
 	area = tech_infrastructure
 	year = 1870
 	cost = 14400
+	increase_research = 0.04
 
 	max_railroad = 1 
 	ai_chance = {
@@ -1232,6 +1250,7 @@ integral_rail_system = {
 	area = tech_infrastructure
 	year = 1898
 	cost = 18000
+	increase_research = 0.04
 
 	max_railroad = 1
 	ai_chance = {
@@ -1263,6 +1282,7 @@ limited_access_roads = {
 	area = tech_infrastructure
 	year = 1919
 	cost = 21600
+	increase_research = 0.04
 
 	max_railroad = 1
 	ai_chance = {
@@ -1315,6 +1335,7 @@ medicine = {
 	area = chemistry_and_electricity
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	supply_limit = 0.25
 	
@@ -1342,6 +1363,7 @@ inorganic_chemistry = {
 	area = chemistry_and_electricity
 	year = 1850
 	cost = 10800
+	increase_research = 0.02
 
 	supply_limit = 0.25
 	
@@ -1405,6 +1427,7 @@ organic_chemistry = {
 	area = chemistry_and_electricity
 	year = 1870
 	cost = 14400
+	increase_research = 0.04
 
 	supply_limit = 0.25
 	
@@ -1449,6 +1472,7 @@ electricity = {
 	area = chemistry_and_electricity
 	year = 1880
 	cost = 18000
+	increase_research = 0.04
 	
 	supply_limit = 0.50
 	ai_chance = {
@@ -1493,6 +1517,7 @@ synthetic_polymers = {
 	area = chemistry_and_electricity
 	year = 1919
 	cost = 21600
+	increase_research = 0.04
 
 	supply_limit = 0.50
 	ai_chance = {

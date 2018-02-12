@@ -36,6 +36,7 @@ stock_exchange = {
 	area = financial_institutions
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	tax_eff = 5
 	
@@ -67,6 +68,7 @@ business_banks = {
 	area = financial_institutions
 	year = 1850
 	cost = 10800
+	increase_research = 0.02
 
 	tax_eff = 5
 	
@@ -98,6 +100,7 @@ investment_banks = {
 	area = financial_institutions
 	year = 1870
 	cost = 14400
+	increase_research = 0.04
 
 	tax_eff = 5
 	ai_chance = {
@@ -128,6 +131,7 @@ bank_inspection_board = {
 	area = financial_institutions
 	year = 1900
 	cost = 18000
+	increase_research = 0.04
 
 	tax_eff = 5
 	ai_chance = {
@@ -158,6 +162,7 @@ mutual_funds = {
 	area = financial_institutions
 	year = 1919
 	cost = 21600
+	increase_research = 0.04
 
 	tax_eff = 5
 	ai_chance = {
@@ -202,6 +207,7 @@ ad_hoc_money_bill_printing = {
 	area = monetary_system
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 	
 	administrative_efficiency = 0.05
 	ai_chance = {
@@ -232,6 +238,7 @@ private_bank_money_bill_printing = {
 	area = monetary_system
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	administrative_efficiency = 0.05
 	ai_chance = {
@@ -254,6 +261,7 @@ central_bank_money_bill_printing = {
 	area = monetary_system
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 
 	administrative_efficiency = 0.05
 	ai_chance = {
@@ -276,6 +284,7 @@ modern_central_bank_system = {
 	area = monetary_system
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 
 	administrative_efficiency = 0.05
 	ai_chance = {
@@ -306,6 +315,7 @@ market_determined_exchange_rates = {
 	area = monetary_system
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 
 	administrative_efficiency = 0.05
@@ -364,6 +374,7 @@ late_classical_theory = {
 	area = economic_thought_and_critique
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	factory_input = -0.01
 	ai_chance = {
@@ -398,6 +409,7 @@ collectivist_theory = {
 	area = economic_thought_and_critique
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	factory_input = -0.01
 	ai_chance = {
@@ -432,6 +444,7 @@ the_historical_theory = {
 	area = economic_thought_and_critique
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 
 	factory_input = -0.01
 	ai_chance = {
@@ -466,6 +479,7 @@ neoclassical_theory = {
 	area = economic_thought_and_critique
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 
 	factory_input = -0.01
 	ai_chance = {
@@ -500,6 +514,7 @@ keynesian_economics = {
 	area = economic_thought_and_critique
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	factory_input = -0.01
 	ai_chance = {
@@ -577,6 +592,7 @@ market_structure = {
 	area = market_functionality
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	influence = 0.1
 	farm_rgo_eff = 0.1
@@ -627,6 +643,7 @@ business_regulations = {
 	area = market_functionality
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	influence = 0.2
 	farm_rgo_eff = 0.1
@@ -664,6 +681,7 @@ market_regulations = {
 	area = market_functionality
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 
 	influence = 0.2
 	ai_chance = {
@@ -695,6 +713,7 @@ economic_responsibility = {
 	area = market_functionality
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 
 	influence = 0.2
 	ai_chance = {
@@ -726,6 +745,7 @@ government_interventionism = {
 	area = market_functionality
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	influence = 0.2
 	ai_chance = {
@@ -799,6 +819,7 @@ organized_factories = {
 	area = tech_organization
 	year = 1836
 	cost = 7200
+	increase_research = 0.02
 
 	factory_output = 0.01
 		ai_chance = {
@@ -849,6 +870,7 @@ scientific_management = {
 	area = tech_organization
 	year = 1836
 	cost = 10800
+	increase_research = 0.02
 
 	factory_output = 0.01
 	ai_chance = {
@@ -891,6 +913,7 @@ time_saving_measures = {
 	area = tech_organization
 	year = 1850
 	cost = 14400
+	increase_research = 0.04
 
 	factory_output = 0.01
 	ai_chance = {
@@ -921,6 +944,7 @@ management_strategy = {
 	area = tech_organization
 	year = 1870
 	cost = 18000
+	increase_research = 0.04
 
 	factory_output = 0.01
 	ai_chance = {
@@ -951,6 +975,7 @@ organizational_development = {
 	area = tech_organization
 	year = 1900
 	cost = 21600
+	increase_research = 0.04
 
 	factory_output = 0.01
 	ai_chance = {
