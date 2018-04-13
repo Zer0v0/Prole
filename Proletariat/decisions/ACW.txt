@@ -23,6 +23,7 @@ political_decisions = {
 			NOT = { has_country_flag = usstatehood_we_have_applied }
 		}
 		allow = {
+			139 = { owned_by = USA }
 			war = no
 			USA = { war = no }
 			USA = { NOT = { average_militancy = 5 badboy = 0.7 } }
@@ -89,6 +90,8 @@ political_decisions = {
 				}
 			}
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 # USA	
@@ -226,6 +229,8 @@ political_decisions = {
 			prestige = 1
 			set_country_flag = custers_expedition_sent
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	enact_the_homestead_act = {
@@ -250,6 +255,8 @@ political_decisions = {
 				duration = -1
 			}
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 			
 	bixby_letter = {
@@ -270,6 +277,8 @@ political_decisions = {
 			set_country_flag = bixby_letter_sent
 			war_exhaustion = -2
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	enact_anaconda_plan = {
@@ -296,6 +305,8 @@ political_decisions = {
 			}
 			set_global_flag = anaconda_plan_active
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	shermans_march_to_the_sea = {
@@ -338,6 +349,8 @@ political_decisions = {
 				war_exhaustion = 4
 			}
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 
 	emancipation_proclamation = {
@@ -379,6 +392,8 @@ political_decisions = {
 				}
 			}
 		}
+		
+		ai_will_do = { factor = 1 }
 	}		
 	manifest_destiny = {
 		potential = {
@@ -414,7 +429,7 @@ political_decisions = {
 			MEX_97 = { add_core = USA } #Utah
 			USA_129 = { add_core = USA } #Oklahoma
 			USA_106 = { add_core = USA } #Colorado
-			#USA_78 = { add_core = USA } #Washington
+			USA_78 = { add_core = USA } #Washington
 			USA_81 = { add_core = USA } #Portland
 			USA_91 = { add_core = USA } #Idaho
 			USA_111 = { add_core = USA } 
@@ -492,8 +507,40 @@ political_decisions = {
 				}
 				consciousness = 2
 			}
+			MEX = {
+				any_pop = {
+					limit = {
+						location = {
+							is_core = CAL
+						}
+						culture = yankee
+					}
+					reduce_pop = 5
+				}
+				any_pop = {
+					limit = {
+						location = {
+							is_core = CAL
+						}
+						culture = mexican
+					}
+					reduce_pop = 0.4
+				}
+				any_pop = {
+					limit = {
+						location = {
+							is_core = CAL
+						}
+						culture = native_american_minor
+					}
+					reduce_pop = 0.4
+				}
+			}
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
+	
 	gag_rule = {
 		picture = gag_rule
 		potential = {
@@ -519,6 +566,8 @@ political_decisions = {
 			}
 			set_country_flag = house_gag_rule_enacted
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	corwin_amendment = {
@@ -546,6 +595,8 @@ political_decisions = {
 			}
 			set_country_flag = corwin_amendment_enacted
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	fugitive_slave_act = {
@@ -574,6 +625,8 @@ political_decisions = {
 			}
 			set_country_flag = fugitive_slave_act_enacted
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	nashville_convention = {
@@ -605,6 +658,8 @@ political_decisions = {
 			}
 			set_country_flag = nashville_convention_held
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	ostend_manifesto = {
@@ -744,6 +799,8 @@ political_decisions = {
 			}
 			set_country_flag = kansas_nebraska_act_acting
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	wilmot_proviso = {
@@ -796,9 +853,11 @@ political_decisions = {
 			USA_121 = { is_slave = no remove_core = CSA }
 			USA_116 = { is_slave = no remove_core = CSA }
 			USA_91 = { is_slave = no remove_core = CSA }
-
+			USA_144 = { is_slave = yes add_core = CSA }
 			set_country_flag = wilmot_proviso_providing
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	form_kellys_irish_brigade = {
@@ -817,6 +876,9 @@ political_decisions = {
 		}
 		
 		effect = {
+			small_arms = 300
+			regular_clothes = 300
+			canned_food = 300
 			random_pop = {
 				limit = {
 					pop_type = farmers
@@ -827,6 +889,8 @@ political_decisions = {
 			war_exhaustion = -1
 			set_country_flag = kellys_irish_brigade
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	raise_the_bonnie_blue_flag = {
@@ -884,8 +948,8 @@ political_decisions = {
 				background = rising_star
 			}
 			
-			#small_arms = 100
-			#regular_clothes = 100
+			small_arms = 100
+			regular_clothes = 100
 			
 			add_country_modifier = {
 				name = the_bonnie_blue_flag
@@ -894,6 +958,8 @@ political_decisions = {
 			
 			set_country_flag = bonnie_blue_flag
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 
 	enact_radical_reconstruction = {
@@ -901,7 +967,7 @@ political_decisions = {
 			tag = USA
 			war = no
 			has_global_flag = american_civil_war_has_happened
-			owns = 60
+			owns = 211
 			owns = 195
 			owns = 139
 			NOT = {
@@ -917,9 +983,14 @@ political_decisions = {
 		
 		effect = {
 			war_exhaustion = -10
+			add_country_modifier = {
+				name = global_baby_boom
+				duration = 365
+			}
 			any_pop = { militancy = -3 }
 			remove_country_modifier = the_slavery_debate
 			remove_accepted_culture = dixie
+			remove_accepted_culture = texan
 			any_owned = {
 				limit = { is_core = CSA }
 				add_province_modifier = { name = reconstruction duration = 2555 }
@@ -929,8 +1000,39 @@ political_decisions = {
 				consciousness = -3
 				militancy = -3
 			}
+			any_pop = {
+				limit = { 
+					has_pop_culture = dixie
+					type = soldiers
+				}
+				reduce_pop = 0.7
+				pop_type = farmers
+			}
+			any_country = {
+				limit = {
+					tag = TEX
+					has_country_flag = fra_loui_texas_join_csa
+					is_vassal = no
+					exists = yes
+					ai = yes
+				}
+				create_vassal = USA
+				create_alliance = USA
+			}
+			diplomatic_influence = {
+					who = TEX
+					value = 400
+			}
+			any_owned = {
+				limit = {
+					produces = cotton
+				}
+				remove_province_modifier = king_cotton
+			}
 			set_country_flag = has_used_radical_reconstruction
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	annex_hawaii = {
@@ -1029,6 +1131,8 @@ political_decisions = {
 			random_owned = { limit = { owner = { tag = USA ai = yes } } 658 = { naval_base = 1 } }
 			HAW = { civilized = yes }
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	sell_alaska = {
@@ -1037,7 +1141,7 @@ political_decisions = {
 			NOT = { has_country_flag = alaska_purchase_started }
 			NOT = { has_global_flag = alaska_purchase_completed }
 			OR = {
-				has_global_flag = american_civil_war_has_happened
+				has_global_flag = acw_war_started
 				year = 1870
 			}
 			tag = RUS
@@ -1054,6 +1158,7 @@ political_decisions = {
 		
 		effect = {
 			set_country_flag = alaska_purchase_started
+			remove_accepted_culture = alaskan
 			prestige = 5
 			any_country = {
 				limit = {
@@ -1062,15 +1167,25 @@ political_decisions = {
 						is_greater_power = yes
 						is_secondary_power = yes
 					}
-					any_owned_province = {
-						OR = {
-							region = MEX_85
-							region = USA_78
-							region = USA_81
-							region = CAN_13
-							region = JAP_1088
+					OR = {
+						any_owned_province = {
+							OR = {
+								#region = MEX_85
+								region = USA_78
+								region = USA_81
+								region = CAN_13
+								region = JAP_1088
+							}
+						}		
+						AND = {
+							tag = ENG
+							ENG = { is_our_vassal = RPL }
+							RPL = {
+								owns = 78
+								owns = 83
+							}
 						}
-					}					
+					}
 				}
 				set_country_flag = alaska_purchase_interest
 			}
@@ -1420,6 +1535,8 @@ political_decisions = {
 			USA_91 = { is_slave = no remove_core = CSA }
 			set_country_flag = clay_and_douglas_draft_enacted
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	offer_to_buy_cuba = {
@@ -1459,6 +1576,8 @@ political_decisions = {
 			set_country_flag = trying_to_buy_cuba
 			2209 = { owner = { country_event = 90131 } }
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 
 	annexation_santo_domingo = {
@@ -1553,7 +1672,7 @@ political_decisions = {
 	
 	
 	the_iron_range = {
-	picture = dreams_of_empire
+	picture = iron_range
 		potential = {
 			owns = 232
 			NOT = { has_country_flag = iron_ranges }

@@ -170,7 +170,14 @@ country_event = {
 		badboy = 2
 		SWH = { all_core = { remove_core = SWH } }
 		SCH = { all_core = { remove_core = SCH } }
-		371 = { remove_core = GER }
+		371 = { 
+			remove_core = GER 
+			remove_core = GCF
+		}
+		370 = { 
+			remove_core = GER 
+			remove_core = GCF
+		}
 		release = HOL
 		any_country = {
 			limit = {
@@ -261,13 +268,21 @@ country_event = {
 			owns = 371
 			vassal_of = DEN
 		}
+		NOT = { has_global_flag = november_constitution }
 	}
 
 	fire_only_once = yes
 
 	mean_time_to_happen = {
 		months = 6
+		
+		modifier = { 
+			factor = 0.1
+			year = 1864
+		}
 	}
+	
+	immediate = { set_global_flag = november_constitution }
 
 	option = {
 		name = "EVT90053OPTA"
@@ -276,7 +291,11 @@ country_event = {
 		SWH = {
 			all_core = { remove_core = SWH }
 		}
+		SCH = {
+			all_core = { remove_core = GER }
+		}
 		release = HOL
+		release = LAU
 		any_country = {
 			limit = { primary_culture = north_german }
 			leave_alliance = THIS
@@ -303,7 +322,7 @@ country_event = {
 			relation = { who = HOL value = 50 }
 		}
 		ai_chance = {
-			factor = 75
+			factor = 90
 		}
 	}
 	option = {
@@ -314,7 +333,7 @@ country_event = {
 			consciousness = 3
 		}
 		ai_chance = {
-			factor = 25
+			factor = 10
 		}
 	}
 }
@@ -394,6 +413,7 @@ country_event = {
 	picture = "tropper_1849"
 
 	trigger = {
+		NOT = { tag = GCF }
 		NOT = { tag = GER }
 		primary_culture = north_german
 		is_greater_power = yes
@@ -456,6 +476,23 @@ country_event = {
 			}
 			country_event = 90056
 		}
+		SWH = {
+			release = LAU
+			release = HOL
+			change_tag = SCH
+		}
+		diplomatic_influence = {
+			who = SCH
+			value = 400
+		}
+		diplomatic_influence = {
+			who = LAU
+			value = 400
+		}
+		create_vassal = LAU
+		create_alliance = LAU
+		create_vassal = SCH
+		create_alliance = SCH
 	}
 }
 
@@ -477,6 +514,11 @@ country_event = {
 			who = FROM
 			value = -100
 		}
+		diplomatic_influence = {
+			who = HOL
+			value = 400
+		}
+		create_alliance = HOL
 	}
 }
 

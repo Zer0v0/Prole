@@ -27,8 +27,11 @@ reactionary_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = absolute_monarchy
 		hms_government = absolute_monarchy
+		french_bourbon = absolute_monarchy
+		dominion = presidential_dictatorship
 		democracy = presidential_dictatorship
-		theocracy = absolute_monarchy
+		theocracy = theocracy
+		colonial_company = absolute_monarchy
 	}
 	
 	
@@ -322,8 +325,11 @@ fascist_rebels = {
 		absolute_monarchy = fascist_dictatorship
 		prussian_constitutionalism = fascist_dictatorship
 		hms_government = fascist_dictatorship
+		french_bourbon = fascist_dictatorship
+		dominion = fascist_dictatorship
 		democracy = fascist_dictatorship
 		theocracy = fascist_dictatorship
+		colonial_company = fascist_dictatorship
 	}
 	
 	
@@ -341,7 +347,7 @@ fascist_rebels = {
 	reinforcing = yes				# Receives reinforcements
 	general = yes					# Uses generals
 	smart = yes					# Assaults forts, tactically withdraws from battle, etc.
-	unit_transfer = no				# Units remain after enforcing demands.
+	unit_transfer = yes				# Units remain after enforcing demands.
 	
 	occupation_mult = 1.0			# The amount of strength this rebel gains from taking provinces	
 
@@ -608,8 +614,11 @@ communist_rebels = {
 		absolute_monarchy = proletarian_dictatorship
 		prussian_constitutionalism = proletarian_dictatorship
 		hms_government = proletarian_dictatorship
+		french_bourbon = proletarian_dictatorship
+		dominion = proletarian_dictatorship
 		democracy = proletarian_dictatorship
 		theocracy = proletarian_dictatorship
+		colonial_company = proletarian_dictatorship
 	}
 	
 	
@@ -627,7 +636,7 @@ communist_rebels = {
 	reinforcing = yes				# Does not receive reinforcements
 	general = yes					# Does use generals
 	smart = yes						# Does not assault forts, tactically withdraw from battle, etc.
-	unit_transfer = no				# Units do not remain after enforcing demands.
+	unit_transfer = yes				# Units do not remain after enforcing demands.
 	
 	occupation_mult = 1.0			# The amount of strength this rebel gains from taking provinces	
 
@@ -653,6 +662,11 @@ communist_rebels = {
 		modifier = {
 			factor = 0.95
 			any_neighbor_country = { government = proletarian_dictatorship }
+		}
+		
+		modifier = {
+			factor = 0
+			country = { government = proletarian_dictatorship }
 		}
 	}
 	
@@ -766,6 +780,13 @@ communist_rebels = {
 				}
 			}
 		}
+		
+		modifier = {
+			factor = 0
+			location = {
+				is_colonial = yes
+			}
+		}
 	}
  
  	#This is checked for EACH province in the Area of Operations
@@ -796,6 +817,11 @@ communist_rebels = {
 		modifier = {
 			factor = 5.0
 			is_capital = yes
+		}
+		
+		modifier = {
+			factor = 0
+			country = { government = proletarian_dictatorship }
 		}
 	}
 	
@@ -890,8 +916,11 @@ anarcho_liberal_rebels = {
 		absolute_monarchy = bourgeois_dictatorship
 		prussian_constitutionalism = bourgeois_dictatorship
 		hms_government = bourgeois_dictatorship
+		french_bourbon = bourgeois_dictatorship
+		dominion = bourgeois_dictatorship
 		democracy = bourgeois_dictatorship
 		theocracy = bourgeois_dictatorship
+		colonial_company = bourgeois_dictatorship
 	}
 	
 	
@@ -953,6 +982,12 @@ anarcho_liberal_rebels = {
 		modifier = {
 			factor = 0
 			country = { civilized = no }
+		}
+		modifier = {
+			factor = 0
+			location = {
+				is_colonial = yes
+			}
 		}
 		modifier = {
 			factor = 0
@@ -1135,7 +1170,7 @@ anarcho_liberal_rebels = {
 		OR = {
 			capital_scope = {
 				controlled_by = REB
-				province_control_days = 90
+				province_control_days = 120
 			}
 			NOT = {
 				any_owned_province = {
@@ -1199,8 +1234,11 @@ nationalist_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 	
 	
@@ -1263,6 +1301,12 @@ nationalist_rebels = {
 			is_culture_group = east_asian
 			has_global_flag = taiping_has_happened
 			TPG = { exists = yes }
+		}
+		modifier = {
+			factor = 0
+			tag = QNG
+			civilized = no
+			ai = yes
 		}
 	}
 	
@@ -1345,6 +1389,15 @@ nationalist_rebels = {
 		}
 		modifier = {
 			factor = 0
+			location = {
+				OR = {
+					is_core = ANT
+					is_core = TST
+				}
+			}
+		}
+		modifier = {
+			factor = 0
 			culture = british
 			country = { primary_culture = boer }
 		}
@@ -1388,6 +1441,13 @@ nationalist_rebels = {
 			country = {
 				civilized = no
 				NOT = { tag = EGY }
+			}
+		}
+		modifier = {
+			factor = 0
+			country = {
+				civilized = no
+				tag = QNG
 			}
 		}
 		modifier = {
@@ -1437,6 +1497,13 @@ nationalist_rebels = {
 				has_country_modifier = springtime_of_nations
 			}
 		}
+		modifier = {
+			factor = 0
+			country = {
+				civilized = no
+				tag = QNG
+			}
+		}
 	}
 	
  	# Province Scope
@@ -1459,7 +1526,7 @@ nationalist_rebels = {
 					controlled_by_rebels = yes
 					NOT = { owned_by = THIS }
 				}
-				province_control_days = 30
+				province_control_days = 60
 			}
 		}
 	}
@@ -1480,7 +1547,7 @@ pan_nationalist_rebels = {
 	icon = 6
 	
 	break_alliance_on_win = no
-	area = nation
+	area = culture_group
 	
 	# <this is the government in the country> = <this is what the rebels want>
 	government = {
@@ -1491,8 +1558,11 @@ pan_nationalist_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = hms_government
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 
 	defection = none			# (It was pan_nationalist) If the country seeks independence, defection specifies what type of provinces it wants.
@@ -1543,6 +1613,22 @@ pan_nationalist_rebels = {
 		modifier = {
 			factor = 0.5
 			has_country_modifier = global_liberal_agitation
+		}
+		modifier = {
+			factor = 0
+			country = { 
+				tag = QNG
+				civilized = no
+			}
+		}
+		modifier = {
+			year = 1895
+			country = { 
+				primary_culture = manchu
+				ai = yes
+				civilized = no
+			}
+			factor = 0
 		}
 	}
 	
@@ -1714,6 +1800,22 @@ pan_nationalist_rebels = {
 			factor = 1.015
 			political_reform_want = 0.15
 		}
+		modifier = {
+			factor = 0
+			country = { 
+				tag = QNG
+				civilized = no
+			}
+		}
+		modifier = {
+			year = 1895
+			country = { 
+				primary_culture = manchu
+				ai = yes
+				civilized = no
+			}
+			factor = 0
+		}
 	}
  
  	#This is checked for EACH province in the Area of Operations
@@ -1744,6 +1846,13 @@ pan_nationalist_rebels = {
 		modifier = {
 			factor = 5.0
 			is_capital = yes
+		}
+		modifier = {
+			factor = 0
+			country = { 
+				tag = QNG
+				civilized = no
+			}
 		}
 	}
 	
@@ -1862,8 +1971,11 @@ carlist_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = absolute_monarchy
 		hms_government = absolute_monarchy
+		french_bourbon = absolute_monarchy
+		dominion = absolute_monarchy
 		democracy = absolute_monarchy
 		theocracy = theocracy
+		colonial_company = absolute_monarchy
 	}
 	
 	
@@ -1881,8 +1993,8 @@ carlist_rebels = {
 	reinforcing = yes				
 	general = yes					
 	smart = yes
-	unit_transfer = no				# Units do not remain after enforcing demands.
-	
+	unit_transfer = yes				# Units do not remain after enforcing demands.
+		
 	occupation_mult = 1.0			# The amount of strength this rebel gains from taking provinces	
 
 	# triggers a general rising, modifier will be multiplied with the countrys army strength and compared to the factions strenght
@@ -2124,8 +2236,11 @@ christino_rebels = {
 		absolute_monarchy = hms_government
 		prussian_constitutionalism = hms_government
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = hms_government
 		democracy = hms_government
 		theocracy = theocracy
+		colonial_company = hms_government
 	}
 	
 	
@@ -2366,8 +2481,11 @@ boxer_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = absolute_monarchy
 		hms_government = absolute_monarchy
+		french_bourbon = absolute_monarchy
+		dominion = absolute_monarchy
 		democracy = absolute_monarchy
 		theocracy = theocracy
+		colonial_company = absolute_monarchy
 	}
 	
 	defection = none				
@@ -2426,6 +2544,10 @@ boxer_rebels = {
 		modifier = {
 			factor = 0.1
 			has_country_flag = supported_boxers
+		}
+		modifier = {
+			factor = 0
+			has_country_flag = boxers_disbanded
 		}
 	}
 	
@@ -2557,6 +2679,11 @@ boxer_rebels = {
 			is_colonial = no
 			NOT = { owned_by = QNG }
 		}
+		
+		modifier = {
+			factor = 0
+			country = { has_country_flag = boxers_disbanded }
+		}
 	}
 	
  	# Province Scope
@@ -2584,17 +2711,14 @@ boxer_rebels = {
 		remove_province_modifier = foreign_trading_post
 		remove_province_modifier = local_opium_habit
 		remove_province_modifier = european_military_mission
-		any_pop = {
-			reduce_pop = 0.99
-		}
 		add_province_modifier = {
 			name = boxer_rebellion
 			duration = 365
 		}
-		random_country = {
-			limit = { is_greater_power = yes }
-			country_event = 13360
-		}
+		#random_country = {
+			#limit = { is_greater_power = yes }
+			#country_event = 13360
+		#}
 	}
 
 	# Country scope
@@ -2628,8 +2752,11 @@ red_shirts = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = hms_government
 		democracy = democracy
 		theocracy = democracy
+		colonial_company = hms_government
 	}
 
 	defection = none			# (Was pan_nationalist) If the country seeks independence, defection specifies what type of provinces it wants.
@@ -2804,7 +2931,7 @@ red_shirts = {
 	siege_won_effect = {
 		add_province_modifier = {
 			name = war_torn
-			duration = 90
+			duration = 365
 		}
 		owner = { war_exhaustion = 2.5 }
 	}
@@ -2864,8 +2991,11 @@ indian_sepoys = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 
 	defection = pan_nationalist		# If the country seeks independence, defection specifies what type of provinces it wants.
@@ -3125,8 +3255,11 @@ indian_nationalists = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 
 	defection = none		# If the country seeks independence, defection specifies what type of provinces it wants.
@@ -3339,8 +3472,11 @@ liberal_rebels = {
 		absolute_monarchy = hms_government
 		prussian_constitutionalism = hms_government
 		hms_government = democracy
+		french_bourbon = democracy
+		dominion = democracy
 		democracy = democracy
 		theocracy = democracy
+		colonial_company = democracy
 	}
 	
 	
@@ -3429,6 +3565,13 @@ liberal_rebels = {
 			factor = 1.03
 			pop_majority_ideology = conservative
 			literacy = 0.50
+		}
+		modifier = {
+			factor = 0.1
+			country = { 
+				tag = ENG
+				government = hms_government
+			}
 		}
 		modifier = {
 			factor = 0.1
@@ -3770,14 +3913,17 @@ unciv_reactionary_rebels = {
 	# <this is the government in the country> = <this is what the rebels want>
 	government = {
 		proletarian_dictatorship = absolute_monarchy
-		presidential_dictatorship = absolute_monarchy
+		presidential_dictatorship = presidential_dictatorship
 		bourgeois_dictatorship = absolute_monarchy
 		fascist_dictatorship = absolute_monarchy
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = absolute_monarchy
 		hms_government = absolute_monarchy
+		french_bourbon = absolute_monarchy
+		dominion = absolute_monarchy
 		democracy = absolute_monarchy
 		theocracy = absolute_monarchy
+		colonial_company = colonial_company
 	}
 	
 	defection = none					# Will defect to the "best" alternative.
@@ -3800,7 +3946,7 @@ unciv_reactionary_rebels = {
 
 	# triggers a general rising, modifier will be multiplied with the country's army strength and compared to the factions strength
 	will_rise = {
-		factor = 0.5
+		factor = 0.35
 		
 		modifier = {
 			war_exhaustion = 4
@@ -3829,6 +3975,25 @@ unciv_reactionary_rebels = {
 		modifier = {
 			civilization_progress = 0.75
 			factor = 0.8
+		}
+		modifier = {
+			factor = 0
+			country = { tag = QNG }
+		}
+		modifier = {
+			factor = 0
+			country = { 
+				OR = { 
+					tag = EGY 
+					tag = KOR
+					tag = LAN
+				} 
+				ai = yes
+			}
+		}
+		modifier = {
+			year = 1885
+			factor = 0
 		}
 	}
 	
@@ -3887,12 +4052,32 @@ unciv_reactionary_rebels = {
 			country = { civilization_progress = 0.75 }
 		}
 		modifier = {
+			factor = 0
+			country = { tag = QNG }
+		}
+		modifier = {
+			year = 1895
+			country = { primary_culture = manchu }
+			factor = 0
+		}
+		modifier = {
 			factor = 0.01
 			country = {
 				tag = QNG
 				civilization_progress = 0.75
 			}
 		}
+		modifier = {
+			factor = 0
+			country = {
+				OR = { 
+					tag = EGY 
+					tag = KOR
+				}
+				ai = yes
+			}
+		}
+		
 		modifier = {
 			factor = 1.02
 			country = { 
@@ -3939,6 +4124,22 @@ unciv_reactionary_rebels = {
 			factor = 2.0
 			is_capital = yes
 		}
+		modifier = {
+			factor = 0
+			country = { tag = QNG }
+		}
+		modifier = {
+			factor = 0
+			country = { 
+				tag = EGY 
+				ai = yes
+			}
+		}
+		modifier = {
+			year = 1895
+			country = { primary_culture = manchu }
+			factor = 0
+		}
 	}
 	
  	# Province Scope
@@ -3957,7 +4158,7 @@ unciv_reactionary_rebels = {
 	siege_won_effect = {
 		add_province_modifier = {
 			name = war_torn
-			duration = 30
+			duration = 365
 		}
 		remove_province_modifier = western_presence
 		remove_province_modifier = foreign_smugglers
@@ -3966,7 +4167,7 @@ unciv_reactionary_rebels = {
 		remove_province_modifier = european_military_mission
 		remove_province_modifier = extraterritoriality_granted
 		rich_strata = {
-			reduce_pop = 0.99
+			reduce_pop = 0.80
 		}
 	}
 
@@ -3982,6 +4183,7 @@ unciv_reactionary_rebels = {
 					is_colonial = no
 					controlled_by = THIS
 				}
+				tag = EIC
 			}
 		}
 	}
@@ -3989,8 +4191,8 @@ unciv_reactionary_rebels = {
 	demands_enforced_effect = {
 		civilized = no
 		war_exhaustion = 50
-		remove_random_economic_reforms = 2
-		remove_random_military_reforms = 2
+		remove_random_economic_reforms = 1
+		remove_random_military_reforms = 1
 		country_event = 800149
 	}
 }
@@ -4013,8 +4215,11 @@ separatist_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 	
 	
@@ -4138,7 +4343,7 @@ separatist_rebels = {
 			}
 		}
 		modifier = {
-			factor = 1.3
+			factor = 1.4
 			country = { any_neighbor_country = { have_core_in = THIS } }
 			location = {
 				any_core = {
@@ -4269,8 +4474,11 @@ socialist_rebels = {
 		absolute_monarchy = democracy
 		prussian_constitutionalism = democracy
 		hms_government = democracy
+		french_bourbon = democracy
+		dominion = democracy
 		democracy = democracy
 		theocracy = democracy
+		colonial_company = democracy
 	}
 	
 	
@@ -4510,6 +4718,12 @@ socialist_rebels = {
 				}
 				NOT = { has_country_flag = wants_to_unify }
 			}
+		}
+		modifier = {
+			factor = 0
+			location = {
+				is_colonial = yes
+			}
 		}		
 	}
  
@@ -4742,8 +4956,11 @@ independence_rebels = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 	
 	
@@ -4795,6 +5012,10 @@ independence_rebels = {
 		}
 		modifier = {
 			factor = 0
+			country = { tag = EGY }
+		}
+		modifier = {
+			factor = 0
 			is_primary_culture = no
 			is_accepted_culture = no
 		}
@@ -4835,6 +5056,10 @@ independence_rebels = {
 		modifier = {
 			factor = 5.0
 			is_capital = yes
+		}
+		modifier = {
+			factor = 0
+			country = { tag = EGY }
 		}
 	}
 	
@@ -4903,8 +5128,11 @@ turkish_nationalist_rebels = {
 		absolute_monarchy = democracy
 		prussian_constitutionalism = democracy
 		hms_government = democracy
+		french_bourbon = democracy
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 	
 	
@@ -5145,8 +5373,11 @@ native_rebels = {
 		absolute_monarchy = democracy
 		prussian_constitutionalism = democracy
 		hms_government = democracy
+		french_bourbon = democracy
+		dominion = democracy
 		democracy = democracy
 		theocracy = democracy
+		colonial_company = democracy
 	}
 	
 	defection = none					# Will defect to the "best" alternative.
@@ -5329,8 +5560,11 @@ sioux_nation = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = theocracy
+		colonial_company = democracy
 	}
 
 	defection = none					# Will defect to the "best" alternative.
@@ -5450,8 +5684,11 @@ apache = {
 		absolute_monarchy = absolute_monarchy
 		prussian_constitutionalism = prussian_constitutionalism
 		hms_government = hms_government
+		french_bourbon = hms_government
+		dominion = democracy
 		democracy = democracy
 		theocracy = democracy
+		colonial_company = democracy
 	}
 
 	defection = none					# Will defect to the "best" alternative.

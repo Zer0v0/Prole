@@ -113,11 +113,17 @@ political_decisions = {
 			372 = { owner = { country_event = { id = 810003 days = 7 } } }
 			set_variable = { which = owed_cash_money value = 0 }
 		}
+		
+		ai_will_do = {
+			factor = 1
+		}
 	}
 	
 	abolish_sound_dues = {
 		picture = sound_dues
 		potential = {
+			is_greater_power = yes
+			capital_scope = { continent = europe }
 			372 = { trade_goods = precious_goods NOT = { owned_by = THIS } }
 			has_global_flag = sound_dues_resisted
 		}
@@ -135,8 +141,13 @@ political_decisions = {
 		effect = {
 			prestige = 30
 			372 = { trade_goods = grain remove_province_modifier = sound_dues_toll }
+			DEN = { prestige = -40 }
 			set_global_flag = sound_dues_abolished
 			clr_global_flag = sound_dues_resisted
+		}
+		
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }

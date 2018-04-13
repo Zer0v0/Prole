@@ -28,6 +28,21 @@ country_event = {
 			name = "western_influences"
 			duration = -1
 		}
+		any_country = {
+			limit = {
+				primary_culture = japanese
+				substate_of = THIS
+			}
+			remove_country_modifier = uncivilized_isolationism
+			remove_country_modifier = isolationist_foreign_naval_officers
+			remove_country_modifier = isolationist_foreign_naval_schools
+			remove_country_modifier = isolationist_foreign_officers
+			remove_country_modifier = isolationist_foreign_training
+			add_country_modifier = {
+				name = "western_influences"
+				duration = -1
+			}
+		}
 		FROM = { country_event = 97606 }
 	}
 	
@@ -138,6 +153,21 @@ country_event = {
 		add_country_modifier = {
 			name = "western_influences"
 			duration = -1
+		}
+		any_country = {
+			limit = {
+				primary_culture = japanese
+				substate_of = THIS
+			}
+			remove_country_modifier = uncivilized_isolationism
+			remove_country_modifier = isolationist_foreign_naval_officers
+			remove_country_modifier = isolationist_foreign_naval_schools
+			remove_country_modifier = isolationist_foreign_officers
+			remove_country_modifier = isolationist_foreign_training
+			add_country_modifier = {
+				name = "western_influences"
+				duration = -1
+			}
 		}
 		ai_chance = { factor = 100 }
 	}
@@ -978,6 +1008,14 @@ country_event = {
 		ai_chance = {
 			factor = 50
 			modifier = {
+				factor = 2
+				tag = SAT
+			}
+			modifier = {
+				factor = 2
+				tag = CHO
+			}
+			modifier = {
 				factor = 1.5
 				has_country_flag = angered_by_bakufu
 			}
@@ -1323,13 +1361,20 @@ country_event = {
 		}
 		random_owned = {
 			limit = {
-				owner = { NOT = { tag = JAP } }
+				owner = { 
+					NOT = { tag = JAP }
+					ai = no
+				}
+				JAP = { ai = yes }
 			}
 			owner = {
 				inherit = JAP
 				capital = 1657
 				change_tag = JAP
 			}
+		}
+		JAP = {
+			political_reform = regionalism
 		}
 		any_country = {
 			limit = {
@@ -1346,6 +1391,19 @@ country_event = {
 			end_war = THIS
 			country_event = 97647
 		}
+		random_country = {
+			limit = { 
+				tag = JAP
+				OR = { 
+					JAP = { ai = no }
+					THIS = { 
+						ai = yes
+					}
+				}
+			}
+			inherit = THIS
+		}
+		create_vassal = RYU
 	}
 }
 
@@ -1366,6 +1424,9 @@ country_event = {
 				THIS = { civilized = no }
 			}
 			THIS = { civilized = yes }
+		}
+		any_owned = {
+			secede_province = JAP
 		}
 		JAP = { inherit = THIS }
 		ai_chance = {
@@ -1412,18 +1473,76 @@ country_event = {
 		months = 3
 	}
 	
+	immediate = {
+		1651 = {
+			add_province_modifier = {
+				name = gateway_to_harbor
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = baby_boom
+				duration = 1825
+			}
+			life_rating = 7
+		}
+		1655 = {
+			add_province_modifier = {
+				name = gateway_to_harbor
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = baby_boom
+				duration = 1825
+			}
+			life_rating = 10
+		}
+		add_country_modifier = {
+			name = global_baby_boom
+			duration = 3650
+		}
+		random_owned = {
+			limit = {
+				owner = { ai = yes }
+			}
+			owner = {
+				machine_parts = 400
+				steel = 600 #was iron
+				cement = 600
+				build_factory_in_capital_state = fabric_factory
+				build_factory_in_capital_state = canned_food_factory
+				build_factory_in_capital_state = liquor_distillery
+			}
+		}
+	}
+	
 	option = {
 		name = "EVT97648OPTA"
 		set_country_flag = capital_in_the_east
 		prestige = 5
 		capital = 1649
 		1649 = {
-			life_rating = 10
 			add_province_modifier = {
 				name = gateway_to_harbor
-				duration = 3650
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = small_baby_boom
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = baby_boom
+				duration = 1825
 			}
 			change_province_name = "Tokyo"
+			life_rating = 8
+		}
+		add_country_modifier = {
+			name = global_baby_boom_small
+			duration = 5475
+		}
+		add_country_modifier = {
+			name = global_baby_boom
+			duration = 1825
 		}
 		ai_chance = {
 			factor = 100
@@ -1434,11 +1553,26 @@ country_event = {
 		name = "EVT97648OPTB"
 		set_country_flag = capital_in_the_east
 		1657 = {
-			life_rating = 10
 			add_province_modifier = {
 				name = gateway_to_harbor
-				duration = 3650
+				duration = 14600
 			}
+			add_province_modifier = {
+				name = small_baby_boom
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = baby_boom
+				duration = 1825
+			}
+		}
+		add_country_modifier = {
+			name = global_baby_boom_small
+			duration = 5475
+		}
+		add_country_modifier = {
+			name = global_baby_boom
+			duration = 1825
 		}
 		ai_chance = {
 			factor = 0
@@ -1514,17 +1648,50 @@ country_event = {
 		days = 7
 	}
 	
+	immediate = {
+		1651 = {
+			add_province_modifier = {
+				name = gateway_to_harbor
+				duration = 14600
+			}
+			life_rating = 5
+		}
+		1655 = {
+			add_province_modifier = {
+				name = gateway_to_harbor
+				duration = 14600
+			}
+			life_rating = 10
+		}
+		add_country_modifier = {
+			name = global_baby_boom
+			duration = 3650
+		}
+	}
+	
 	option = {
 		name = "EVT97651OPTA"
 		clr_global_flag = boshin_war
 		set_global_flag = boshin_war_has_happened
 		prestige = 20
 		1649 = {
-			life_rating = 10
 			add_province_modifier = {
 				name = gateway_to_harbor
-				duration = 3650
+				duration = 14600
 			}
+			add_province_modifier = {
+				name = small_baby_boom
+				duration = 14600
+			}
+			add_province_modifier = {
+				name = baby_boom
+				duration = 1825
+			}
+			life_rating = 8
+		}
+		add_country_modifier = {
+			name = global_baby_boom_small
+			duration = 5475
 		}
 		random_country = {
 			limit = {
@@ -1575,6 +1742,7 @@ country_event = {
 			end_war = THIS
 			country_event = 97652
 		}
+		create_vassal = RYU
 	}
 }
 
@@ -1893,6 +2061,9 @@ country_event = {
 		clr_country_flag = satsuma_rebellion_happened
 		SAT = { clr_country_flag = satsuma_rebellion }
 		JAP_1660 = { remove_core = SAT }
+		JAP = {
+			political_reform = unitary
+		}
 		any_pop = {
 			limit = { is_primary_culture = yes }
 			ideology = {
@@ -2459,6 +2630,7 @@ country_event = {
 	
 	trigger = {
 		tag = JAP
+		is_greater_power = yes
 		has_country_modifier = line_of_advantage
 		is_disarmed = no
 		war = no
@@ -2466,7 +2638,6 @@ country_event = {
 			is_colonial = no
 			owner = {
 				is_culture_group = east_asian
-				civilized = yes
 				is_greater_power = no
 				part_of_sphere = no
 				is_vassal = no
@@ -2481,6 +2652,10 @@ country_event = {
 					war = no
 				}
 			}
+		}
+		OR = {
+			year = 1874
+			total_amount_of_ships = 35
 		}
 		NOT = {
 			has_country_flag = taiwan_line_of_advantage
@@ -2902,13 +3077,13 @@ country_event = {
 		name = "EVT97682OPTA" #Deny their request.
 		release_vassal = EZO
 		relation = { who = EZO value = -400 }
-		ai_chance = { factor = 0.98 }
+		ai_chance = { factor = 100 }
 	}
 		
 	option = {
 		name = "EVT97682OPTB" #Agree
 		add_tax_relative_income = 0.5
-		ai_chance = { factor = 0.01 }
+		ai_chance = { factor = 0 }
 	}
 		
 	option = {
@@ -2916,7 +3091,7 @@ country_event = {
 		EZO = { all_core = { remove_core = THIS } }
 		release_vassal = EZO
 		relation = { who = EZO value = 400 }
-		ai_chance = { factor = 0.01 }
+		ai_chance = { factor = 0 }
 	}
 	option = {
 		name = "EVT97683OPTB" #Set them completely free and play as them

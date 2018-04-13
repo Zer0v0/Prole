@@ -704,10 +704,11 @@ country_event = {
 			modifier = {
 				factor = 100
 				NOT = { money = 900 }
-				}
 			}
 		}
 	}
+	
+}
 	
 country_event = {
 	id = 34612
@@ -716,10 +717,12 @@ country_event = {
 	picture = "prussian_constitution"
 
 	trigger = {
-		tag = PRU
+		OR = { 
+			tag = PRU
+			tag = NGF
+		}
 		year = 1847
-		month = 6
-		militancy = 5
+		militancy = 4
 		OR = {
 			AND = {
 				NOT = { press_rights = free_press }
@@ -757,7 +760,7 @@ country_event = {
 			ideology = reactionary 
 				}
 			}
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 99 }
 		}
 	
 	option = {
@@ -772,7 +775,7 @@ country_event = {
 			ideology = liberal 
 				}
 			}
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 1 }
 		}
 	}
 	
@@ -790,7 +793,7 @@ country_event = {
 			government = prussian_constitutionalism
 			government = hms_government
 		}
-		NEH = {
+		NCT = {
 			exists = yes
 			ai = yes
 			OR = {
@@ -809,12 +812,12 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA34613"
-		NEH = { government = democracy any_pop = { militancy = -9 consciousness = -9 } }
-		relation = { who = NEH value = -400 }
-		leave_alliance = NEH
+		NCT = { government = democracy any_pop = { militancy = -9 consciousness = -9 } }
+		relation = { who = NCT value = -400 }
+		leave_alliance = NCT
 		any_country = {
 			limit = { is_greater_power = yes }
-			diplomatic_influence = { who = NEH value = -400 }
+			diplomatic_influence = { who = NCT value = -400 }
 		}
 		ai_chance = { factor = 0.95 }
 	}
@@ -823,12 +826,12 @@ country_event = {
 		name = "EVTOPTB34613"
 		prestige = -5
 		badboy = -1
-		leave_alliance = NEH
+		leave_alliance = NCT
 		SWI = {
-			release_vassal = NEH
-			inherit = NEH
+			release_vassal = NCT
+			inherit = NCT
 		}
-		608 = { remove_core = NEH }
+		608 = { remove_core = NCT }
 		relation = { who = SWI value = 75 }
 		diplomatic_influence = { who = SWI value = 50 }
 		ai_chance = { factor = 0.05 }
@@ -875,17 +878,17 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA34614"
-		leave_alliance = NEH
+		leave_alliance = NCT
 		608 = {
 			remove_core = GER
 			remove_core = NGF
 			remove_core = PRU
-			remove_core = NEH
+			remove_core = NCT
 		}
 		random_country = {
 			limit = {
 				exists = yes
-				tag = NEH
+				tag = NCT
 				OR = {
 					vassal_of = SWI
 					is_vassal = no
@@ -905,7 +908,7 @@ country_event = {
 
 	trigger = {
 		NOT = { has_country_flag = neuchatel_crisis_escalated }
-		NEH = {
+		NCT = {
 			ai = yes
 			exists = yes
 			NOT = { government = absolute_monarchy }
@@ -951,17 +954,21 @@ country_event = {
 		}
 		relation = { who = SWI value = -400 }
 		diplomatic_influence = { who = SWI value = -400 }
-		relation = { who = NEH value = -400 }
-		diplomatic_influence = { who = NEH value = -400 }
-		leave_alliance = NEH
-		release_vassal = NEH
+		relation = { who = NCT value = -400 }
+		diplomatic_influence = { who = NCT value = -400 }
+		leave_alliance = NCT
+		release_vassal = NCT
 		ENG = {
 			create_alliance = SWI
 			set_country_flag = supports_switzerland
 			relation = { who = THIS value = -200 }
 			casus_belli = { target = THIS type = cut_down_to_size months = 12 }
 		}
-		FRA = {
+		random_country = {
+			limit = {
+				primary_culture = french
+				capital = 425
+			}	
 			create_alliance = SWI
 			set_country_flag = supports_switzerland
 			relation = { who = THIS value = -200 }
@@ -971,7 +978,7 @@ country_event = {
 			limit = {
 				is_greater_power = yes
 				capital_scope = { continent = europe }
-				NOT = { tag = FRA }
+				NOT = { primary_culture = french }
 				NOT = { tag = ENG }
 				NOT = { tag = THIS }
 				relation = { who = SWI value = 50 }
@@ -1010,16 +1017,16 @@ country_event = {
 	option = {
 		name = "EVTOPTB34615"
 		prestige = 5
-		leave_alliance = NEH
-		release_vassal = NEH
+		leave_alliance = NCT
+		release_vassal = NCT
 		608 = { remove_core = NGF }
 		608 = { remove_core = GER }
 		608 = { remove_core = PRU }
-		608 = { remove_core = NEH }
+		608 = { remove_core = NCT }
 		random_country = {
 			limit = {
 				exists = yes
-				tag = NEH
+				tag = NCT
 				ai = yes
 				OR = {
 					vassal_of = SWI

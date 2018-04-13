@@ -15,7 +15,7 @@ country_event = {
 			tag = ENG
 			tag = ENL
 		}
-		year = 1837
+		year = 1838
 		OR = {
 			government = absolute_monarchy
 			government = prussian_constitutionalism
@@ -38,7 +38,15 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA36898"
-		random_owned = { limit = { owner = { is_our_vassal = HAN } } owner = { release_vassal = HAN diplomatic_influence = { who = HAN value = -200 } } }
+		random_owned = { limit = { owner = { is_our_vassal = HAN } } owner = { leave_alliance = HAN release_vassal = HAN diplomatic_influence = { who = HAN value = -200 } } }
+		HAN = { government = absolute_monarchy }
+		random_country = {
+			limit = {
+				tag = AUS
+				is_greater_power = yes
+			}
+			diplomatic_influence = { who = HAN value = 400 }
+		}
 		prestige = 5
 		election = yes
 	}
@@ -1609,6 +1617,7 @@ country_event = {
 		year = 1836
 		exists = COB
 		OR = {
+			war_with = GCF
 			war_with = GER
 			war_with = PRU
 			}
@@ -1716,8 +1725,8 @@ country_event = {
 		OR = {
 			tag = ENG
 			tag = ENL
+			tag = EIC
 		}
-		NOT = { has_global_flag = eic_spawned }
 		owns = 1251 #Calcutta
 		year = 1853
 		NOT = { year = 1857 }
@@ -1835,6 +1844,16 @@ country_event = {
 			limit = { has_pop_culture = maori }
 			militancy = -3
 		}
+		any_owned = {
+			limit = {
+				is_core = NZL
+				is_colonial = yes
+			}
+			add_province_modifier = {
+				name = small_immigration_boom
+				duration = 1825
+			}
+		}
 	}
 }
 
@@ -1906,6 +1925,7 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
+		is_greater_power = yes
 		2509 = {
 			owned_by = THIS
 			is_colonial = yes 
@@ -1914,9 +1934,8 @@ country_event = {
 		owns = 2510
 		owns = 2511
 		owns = 2512
-		NZL = {
-			exists = no
-		}
+		NZL = { exists = no }
+		NZF = { exists = no }
 	}
 
 	mean_time_to_happen = {
@@ -2035,16 +2054,19 @@ country_event = {
 		is_greater_power = yes
 		nationalism_n_imperialism = 1
 		NOT = { has_global_flag = berlin_conference }
-		NOT = { has_global_flag = eic_spawned }
 		BUR = {
 			war = no
 			civilized = no
 			is_vassal = no
 			exists = yes
-			neighbour = ENG
+			OR = {
+				neighbour = ENG
+				neighbour = EIC
+			}
 			number_of_states = 2
 			any_owned_province = { port = yes }
 			NOT = { truce_with = ENG }
+			owns = 1332
 		}
 		OR = {
 			war_policy = jingoism
@@ -2054,6 +2076,16 @@ country_event = {
 	
 	mean_time_to_happen = {
 		months = 12
+		
+		modifier = {
+			factor = 0.75
+			year = 1852
+		}
+		
+		modifier = {
+			factor = 0.5
+			year = 1853
+		}
 	}
 	
 	option = {
@@ -2067,8 +2099,16 @@ country_event = {
 			type = demand_concession_NI_casus_belli
 			months = 60
 		}
+		war = {
+			target = BUR
+			attacker_goal = { 
+				casus_belli = demand_concession_NI_casus_belli 
+				state_province_id = 1332
+			}
+			defender_goal = { casus_belli = status_quo }
+		}
 		ai_chance = {
-			factor = 95
+			factor = 99
 		}
 	}
 	
@@ -2091,7 +2131,7 @@ country_event = {
 			militancy = 2
 		}
 		ai_chance = {
-			factor = 5
+			factor = 1
 		}
 	}
 }
@@ -2651,10 +2691,12 @@ country_event = {
 	
 	option = {
 		name = "EVT3697006OPTA"
-		2070 = { secede_province = THIS life_rating = 25 }
-		2635 = { secede_province = THIS life_rating = 25 }
-		2068 = { secede_province = THIS life_rating = 25 }
-		#2068 = { change_province_name = "Salisbury" }
+		2070 = { secede_province = THIS life_rating = 25 any_pop = { limit = { NOT = { has_pop_culture = british } } literacy = -0.99 } }
+		2635 = { secede_province = THIS life_rating = 25 any_pop = { limit = { NOT = { has_pop_culture = british } } literacy = -0.99 } }
+		2068 = { secede_province = THIS change_province_name = "Salisbury" life_rating = 25 any_pop = { limit = { NOT = { has_pop_culture = british } } literacy = -0.99 } }
+		2073 = { secede_province = THIS life_rating = 10 any_pop = { limit = { NOT = { has_pop_culture = british } } literacy = -0.99 } }
+		2072 = { secede_province = THIS life_rating = 10 any_pop = { limit = { NOT = { has_pop_culture = british } } literacy = -0.99 } }
+		2096 = { any_pop = { limit = { type = soldiers has_pop_culture = british } move_pop = 2068 } }
 		2087 = { any_pop = { limit = { type = soldiers has_pop_culture = british } move_pop = 2068 } }
 		2087 = { any_pop = { limit = { type = artisans has_pop_culture = british } pop_type = soldiers } }
 	}
@@ -2776,9 +2818,21 @@ country_event = {
 	
 	trigger = {
 		tag = ENG
-		owns = 1224
-		owns = 1225
-		owns = 1226
+		OR = {
+			ENG = {
+				owns = 1224
+				owns = 1225
+				owns = 1226
+			}
+			AND = {
+				EIC = {
+					owns = 1224
+					owns = 1225
+					owns = 1226		
+				}
+				EIC = { vassal_of = ENG }
+			}
+		}
 		war = no
 		NOT = { year = 1880 }
 		KAS = { exists = no }
@@ -2789,16 +2843,16 @@ country_event = {
 	option = {
 		name = "EVT3697009OPTA"
 			prestige = 5
-			badboy = -2
+			badboy = -5
 			treasury = 50000
-			PAN_1224 = { secede_province = KAS }
+			release = KAS
+			EIC = {
+				PAN_1224 = { secede_province = KAS }
+				release = KAS
+			}
 			create_vassal = KAS
 			diplomatic_influence = { who = KAS value = 400 }
 			relation = { who = KAS value = 400 }
-			random_country = {
-				limit = { exists = yes tag = CRL ai = yes }
-				add_casus_belli = { target = ENG type = establish_protectorate_casus_belli months = 96 }
-			}
 			KAS = {
 				civilized = no
 				government = absolute_monarchy 
@@ -2829,6 +2883,7 @@ country_event = {
 	
 	option = {
 		name = "EVT3697010OPTA"
+			set_country_flag = durand_line
 			badboy = -2
 			relation = { who = ENG value = 400 }
 			treasury = 50000
@@ -2836,8 +2891,25 @@ country_event = {
 			any_owned = { limit = { is_core = HND } secede_province = ENG }
 			FROM = { diplomatic_influence = { who = THIS value = 50 } }
 			FROM = { any_owned = { limit = { is_core = AFG } secede_province = AFG } }
+			ENG = {		
+				diplomatic_influence = {
+					who = THIS
+					value = 100
+				}			
+			}
+			any_owned = {
+				limit = {
+					owner = { ai = yes neighbour = RUS }
+					OR = {
+						region = RUS_1196
+						region = KHI_1191
+						region = KOK_1190
+					}
+				}
+				secede_province = RUS
+			}
 			ai_chance = { 
-				factor = 90
+				factor = 95
 				modifier = {
 					factor = 100
 					OR = {
@@ -2851,7 +2923,7 @@ country_event = {
 	option = {
 		name = "EVT3697010OPTB"
 		relation = { who = ENG value = -100 }
-		ai_chance = { factor = 10 }
+		ai_chance = { factor = 5 }
 	}
 }
 

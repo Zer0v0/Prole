@@ -327,10 +327,10 @@ country_event = {
 		SAR = {
 			prestige = 10
 			relation = {
-				who = FRA
+				who = THIS
 				value = 150
 			}
-			create_alliance = FRA
+			create_alliance = THIS
 			add_country_modifier = {
 				name = small_country_draft
 				duration = 365
@@ -340,13 +340,13 @@ country_event = {
 			limit = {
 				is_culture_group = italian
 				OR = {
-					in_sphere = FRA
+					in_sphere = THIS
 					part_of_sphere = no
 				}
 				ai = yes
-				NOT = { alliance_with = FRA }
+				NOT = { alliance_with = THIS }
 			}
-			create_alliance = FRA
+			create_alliance = THIS
 		}		
 		random_country = {
 			limit = {
@@ -375,6 +375,13 @@ country_event = {
 					}
 					call_ally = yes
 				}
+			}
+			any_country = {
+				limit = {
+					ai = yes
+					alliance_with = AUS
+				}
+				leave_alliance = AUS
 			}
 		}
 		random_country = {
@@ -463,7 +470,187 @@ country_event = {
 					call_ally = yes
 				}
 			}
-		}		
+		}	
+		random_country = {
+			limit = {
+				tag = AUS
+				OR = { 
+					AND = { 
+						owns = 726
+						owns = 727
+						owns = 728
+					}
+					AND = { 
+						NOT = { 
+							owns = 726
+							owns = 727
+							owns = 728
+						}
+						AND = {
+							owns = 729
+							owns = 730
+							owns = 731
+						}
+					}
+				}
+				exists = SAR
+			}
+			THIS = {
+				relation = {
+					who = AUS
+					value = -150
+				}
+				casus_belli = {
+					target = AUS
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = AUS
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SAR
+						state_province_id = 729
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = KUK
+				OR = { 
+					AND = { 
+						owns = 726
+						owns = 727
+						owns = 728
+					}
+					AND = { 
+						NOT = { 
+							owns = 726
+							owns = 727
+							owns = 728
+						}
+						AND = {
+							owns = 729
+							owns = 730
+							owns = 731
+						}
+					}
+				}
+				exists = SAR
+			}
+			THIS = {
+				relation = {
+					who = KUK
+					value = -150
+				}
+				casus_belli = {
+					target = KUK
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = KUK
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SAR
+						state_province_id = 729
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = AUS
+				OR = { 
+					AND = { 
+						owns = 726
+						owns = 727
+						owns = 728
+					}
+					AND = { 
+						NOT = { 
+							owns = 726
+							owns = 727
+							owns = 728
+						}
+						AND = {
+							owns = 729
+							owns = 730
+							owns = 731
+						}
+					}
+				}
+				exists = SVY
+			}
+			THIS = {
+				relation = {
+					who = AUS
+					value = -150
+				}
+				casus_belli = {
+					target = AUS
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = AUS
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SVY
+						state_province_id = 729
+					}
+					call_ally = yes
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				tag = KUK
+				OR = { 
+					AND = { 
+						owns = 726
+						owns = 727
+						owns = 728
+					}
+					AND = { 
+						NOT = { 
+							owns = 726
+							owns = 727
+							owns = 728
+						}
+						AND = {
+							owns = 729
+							owns = 730
+							owns = 731
+						}
+					}
+				}
+				exists = SVY
+			}
+			THIS = {
+				relation = {
+					who = KUK
+					value = -150
+				}
+				casus_belli = {
+					target = KUK
+					type = free_peoples
+					months = 12
+				}
+				war = {
+					target = KUK
+					attacker_goal = {
+						casus_belli = free_peoples
+						country = SVY
+						state_province_id = 729
+					}
+					call_ally = yes
+				}
+			}
+		}
 		ai_chance = {
 			factor = 95
 		}
@@ -478,10 +665,10 @@ country_event = {
 		FROM = {
 			prestige = -10
 			relation = {
-				who = FRA
+				who = THIS
 				value = -100
 			}
-			leave_alliance = FRA
+			leave_alliance = THIS
 			country_event = 96161
 		}
 		ai_chance = {
@@ -504,6 +691,7 @@ country_event = {
 		NOT = {
 			tag = SAR
 			tag = SVY
+			tag = SMR
 			exists = ITA
 			truce_with = SAR
 			truce_with = SVY
@@ -608,8 +796,9 @@ country_event = {
 			owns = 727
 			owns = 728
 		}
-		FRA = {
-			war = no
+		OR = { 
+			FRA = { exists = yes war = no }
+			BOR = { exists = yes war = no }
 		}
 	}
 	
@@ -620,9 +809,23 @@ country_event = {
 	option = {
 		name = "EVT96161OPTA"
 		set_global_flag = plombieres_refused
-		465 = { add_core = FRA }
-		466 = { add_core = FRA }
-		472 = { add_core = FRA }
+		random_owned = {
+			limit = { exists = FRA }
+			owner = {
+				465 = { add_core = FRA }
+				466 = { add_core = FRA }
+				472 = { add_core = FRA }
+			}
+		}	
+		random_owned = {
+			limit = { exists = BOR }
+			owner = {
+				465 = { add_core = BOR }
+				466 = { add_core = BOR }
+				472 = { add_core = BOR }
+			}
+		}	
+		
 		PAP_741 = { add_core = THIS }
 		#MOD_739 = { add_core = THIS }
 		TUS_744 = { add_core = THIS }
@@ -675,7 +878,7 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.5
-				tag = FRA
+				primary_culture = french
 				NOT = {
 					465 = { owned_by = ITA }
 					466 = { owned_by = ITA }
@@ -734,7 +937,7 @@ country_event = {
 			}
 			modifier = {
 				factor = 1.5
-				tag = FRA
+				primary_culture = french
 				NOT = {
 					465 = { owned_by = ITA }
 					466 = { owned_by = ITA }
@@ -743,7 +946,7 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.5
-				tag = FRA
+				primary_culture = french
 				OR = {
 					465 = { owned_by = ITA }
 					466 = { owned_by = ITA }
@@ -809,6 +1012,15 @@ country_event = {
 					tag = SIC
 				}
 				exists = GER
+				year = 1890
+			}
+			AND = {
+				OR = {
+					tag = SAR
+					tag = SVY
+					tag = SIC
+				}
+				exists = GCF
 				year = 1890
 			}
 		}
@@ -878,6 +1090,7 @@ country_event = {
 				NOT = {
 					tag = THIS
 					tag = PAP
+					tag = SMR
 				}
 				is_culture_group = THIS
 				capital_scope = { continent = europe }

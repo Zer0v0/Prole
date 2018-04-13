@@ -6,6 +6,8 @@ political_decisions = {
 			capital_scope = { continent = europe }
 			NOT = { tag = TUR }
 			NOT = { tag = RUS }
+			NOT = { tag = SAR }
+			NOT = { tag = SIC }
 			NOT = { has_global_flag = called_congo_conference }
 			1984 = { empty = yes }
 			any_owned_province = { has_building = naval_base }
@@ -46,16 +48,40 @@ political_decisions = {
 				}
 				AND = {
 					NOT = { badboy = 0.1 }
-					NOT = { any_owned_province = { continent = africa } }
+					NOT = { 
+						any_owned_province = { continent = africa } 
+						any_owned_province = { continent = south_west_africa } 
+						any_owned_province = { continent = east_africa } 
+						any_owned_province = { continent = west_africa }
+					}
 					naval_logistics = 1
 					year = 1885
 				}
 				AND = {
 					NOT = { badboy = 0.01 }
-					NOT = { any_owned_province = { continent = africa } }
+					NOT = { 
+						any_owned_province = { continent = africa } 
+						any_owned_province = { continent = south_west_africa } 
+						any_owned_province = { continent = east_africa } 
+						any_owned_province = { continent = west_africa }
+					}
 					NOT = { any_owned_province = { is_colonial = yes } }
 					raider_group_doctrine = 1
 					year = 1886
+				}
+				AND = {
+					tag = BEL
+					NOT = { badboy = 0.5 }
+					NOT = { 
+						any_owned_province = { continent = africa } 
+						any_owned_province = { continent = south_west_africa } 
+						any_owned_province = { continent = east_africa } 
+						any_owned_province = { continent = west_africa }
+					}
+					NOT = { any_owned_province = { is_colonial = yes } }
+					raider_group_doctrine = 1
+					has_global_flag = yes_railroad
+					year = 1880
 				}
 			}
 		}
@@ -86,14 +112,26 @@ political_decisions = {
 			NOT = { has_country_flag = force_publique_formed }
 		}
 		allow = {
-			any_owned_province = { continent = africa }
+			OR = {
+				any_owned_province = { continent = africa } 
+				any_owned_province = { continent = south_west_africa } 
+				any_owned_province = { continent = east_africa } 
+				any_owned_province = { continent = west_africa }
+			}
 			military_logistics = 1
 		}
 		effect = {
 			set_country_flag = force_publique_formed
 			any_pop = {
 				limit = {
-					location = { continent = africa }
+					location = { 
+						OR = {
+							continent = africa 
+							continent = south_west_africa 
+							continent = east_africa
+							continent = west_africa
+						}
+					}
 					NOT = {
 						has_pop_culture = wallonian
 						has_pop_culture = flemish
@@ -103,7 +141,14 @@ political_decisions = {
 				militancy = 3
 			}
 			any_owned = {
-				limit = { continent = africa }
+				limit = {
+					OR = {
+						continent = africa 
+						continent = south_west_africa 
+						continent = east_africa
+						continent = west_africa
+					}
+				}
 				add_province_modifier = {
 					name = force_publique
 					duration = -1
@@ -467,4 +512,45 @@ political_decisions = {
 
 		ai_will_do = { factor = 1 }
 	}
+	
+	
+	law_of_equality = {
+		picture = law_of_equality
+		potential = {
+			tag = BEL
+			owns = 390
+			NOT = { accepted_culture = flemish }
+			NOT = { has_country_flag = law_of_equality }
+		}
+
+		allow = {
+			war = no
+			OR = {
+				revolution_n_counterrevolution = 1
+				387 = { average_militancy = 6 }
+				num_of_revolts = 1
+			}
+		}
+
+		effect = {
+			set_country_flag = law_of_equality
+			prestige = 5
+			add_accepted_culture = flemish
+			387 = { change_province_name = "Brussel" }
+			set_global_flag = dutch_rename_brussels
+			clr_global_flag = france_rename_brussels
+			any_pop = {
+				limit = {
+					has_pop_culture = flemish
+				}
+				militancy = -5
+				consciousness = -5
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 }

@@ -31,15 +31,10 @@ political_decisions = {
 			}
 		}
 		allow = {
-			relation = {
-				who = USA
-				value = 0
-			}
+			relation = { who = USA value = 0 }
 		}
 		effect = {
-			USA = {
-				country_event = { id=13350 days=0 }
-			}
+			USA = { country_event = { id=13350 days=0 } }
 			set_country_flag = sent_an_elephant_to_america
 		}
 	}
@@ -77,9 +72,7 @@ political_decisions = {
 				has_global_flag = egypt_submitted_to_ottomans
 			}
 		}
-		allow = {
-			vassal_of = TUR
-		}
+		allow = { vassal_of = TUR }
 		
 		effect = {
 			set_country_flag = muhammad_alis_reforms_enacted
@@ -87,15 +80,11 @@ political_decisions = {
 			treasury = 5000
 			small_arms = 20
 			regular_clothes = 50
+			military_reform = yes_foreign_navies
 			military_reform = yes_foreign_training
-			add_country_modifier = {
-				name = muhammad_alis_reforms
-				duration = -1
-			}
-			
+			add_country_modifier = { name = muhammad_alis_reforms duration = -1 }
 			any_owned = { limit = { continent = africa is_core = EGY NOT = { terrain = desert terrain = semidesert } }
 			add_province_modifier = { name = baby_boom duration = 5475 } }
-			
 			any_pop = {
 				limit = { is_primary_culture = yes }
 				consciousness = 4
@@ -223,6 +212,8 @@ political_decisions = {
 			}
 			any_pop = { limit = { OR = { is_primary_culture = yes is_accepted_culture = yes } } militancy = -4 }
 		}
+		
+		ai_will_do = { factor = 1 }
 	}
 	
 	conquest_of_the_south = {
@@ -256,6 +247,7 @@ political_decisions = {
 		
 		effect = {
 			set_country_flag = conquest_of_the_south
+			years_of_research = 1
 			1864 = { add_core = ETH secede_province = ETH any_pop = { literacy = -0.99 } life_rating = 21 }
 			1866 = { add_core = ETH secede_province = ETH any_pop = { literacy = -0.99 } life_rating = 21 }
 			1867 = { add_core = ETH secede_province = ETH any_pop = { literacy = -0.99 } life_rating = 21 }
@@ -278,6 +270,7 @@ political_decisions = {
 			OR = {
 				civilized = yes
 				civilization_progress = 0.5
+				year = 1886
 			}
 			owns = 1859
 		}
@@ -285,6 +278,7 @@ political_decisions = {
 		effect = {
 			set_country_flag = addis_ababa_built
 			prestige = 5
+			years_of_research = 1
 			1859 = {
 				change_province_name = "Addis Ababa"
 				life_rating = 5
@@ -296,9 +290,7 @@ political_decisions = {
 			ENG_1848 = { add_core = TIG }
 		}
 		
-		ai_will_do = {
-			factor = 1
-		}
+		ai_will_do = { factor = 1 }
 	}
 	
 	eth_mission_to_cairo = {
@@ -566,6 +558,8 @@ political_decisions = {
 		potential = {
 			1875 = { empty = yes }
 			civilized = yes
+			has_global_flag = berlin_conference
+			total_amount_of_ships = 50
 			OR = {
 				AND = {
 					OR = {
@@ -616,7 +610,7 @@ political_decisions = {
 					ai = no
 				}
 				AND = {
-					battleship_column_doctrine = 1
+					blue_and_brown_water_schools = 1
 					ai = yes
 				}
 				any_owned_province = {
@@ -679,6 +673,7 @@ political_decisions = {
 		picture = request_missionaries
 		potential = {
 			NOT = { has_country_flag = asked_for_protection }
+			NOT = { tag = EIC }
 			NOT = { is_culture_group = east_asian }
 			NOT = { primary_culture = japanese }
 			NOT = { tag = HYD }

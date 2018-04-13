@@ -6,7 +6,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = nigeria_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			OR = {
 				owns = 1926
@@ -139,6 +142,8 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } ARO = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } ARO = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } ARO = { religion =  yazidi set_country_flag = yazidi_country } }
+			
+			random_owned = { limit = { owner = { primary_culture = british } }  NGR = { government = colonial_company } }
 		}
 	}
 	
@@ -155,7 +160,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -280,7 +288,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = togo_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 			owns = 1914
 		}
@@ -362,7 +373,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -438,7 +452,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = ivory_coast_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1892
 		}
@@ -467,6 +484,7 @@ political_decisions = {
 				remove_core = MOS
 				add_province_modifier = { name = colonial_exploitation duration = 1095 }
 			}
+			random_owned = { limit = { owner = { primary_culture = french } } IVC = { government = colonial_company } }
 			IVC = {
 				primary_culture = THIS
 				add_accepted_culture = dyula
@@ -523,7 +541,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -600,7 +621,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = sierra_leone_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 			owns = 1884
 			owns = 1885
@@ -679,7 +703,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -743,7 +770,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = guinea_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1879
 			owns = 1880
@@ -824,7 +854,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -897,7 +930,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = senegal_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 			owns = 1790
 		}
@@ -945,7 +981,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -986,7 +1025,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = niger_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 			owns = 1808
 			1812 = { empty = no }
@@ -1074,7 +1116,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -1156,7 +1201,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = chad_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 			owns = 1818
 		}
@@ -1250,7 +1298,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -1335,7 +1386,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = cameroon_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1959
 		}
@@ -1360,6 +1414,10 @@ political_decisions = {
 				add_core = CMR
 				life_rating = 25
 				add_province_modifier = { name = colonial_exploitation duration = 1095 }
+			}
+			random_owned = {
+				limit = { owner = { is_culture_group = germanic } }
+				CMR = { government = colonial_company }
 			}
 			CMR = {
 				primary_culture = THIS
@@ -1418,7 +1476,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -1503,7 +1564,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = gabon_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1972
 		}
@@ -1567,6 +1631,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } GAB = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } GAB = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } GAB = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = french } } GAB = { government = colonial_company } }
 		}
 	}
 	
@@ -1581,7 +1646,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -1638,6 +1706,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } GAB = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } GAB = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } GAB = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = french } } GAB = { government = colonial_company } }
 		}
 	}
 	
@@ -1647,7 +1716,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = congo_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1977
 		}
@@ -1666,7 +1738,7 @@ political_decisions = {
 				change_province_name = "Brazzaville"
 			}
 			any_owned = {
-				limit = { region = FRA_1978 }
+				limit = { region = FRA_1978 NOT = { life_rating = 30 } }
 				add_core = CGO
 				life_rating = 25
 				add_province_modifier = { name = colonial_exploitation duration = 1095 }
@@ -1729,7 +1801,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -1807,7 +1882,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = zaire_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1982
 			NOT = { has_country_flag = not_congo_primary_culture }
@@ -1914,7 +1992,12 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { 
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa } 
+			}
 			NOT = { has_country_flag = not_congo_primary_culture }
 		}
 		
@@ -2013,7 +2096,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = zambia_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2012
 		}
@@ -2026,9 +2112,15 @@ political_decisions = {
 		
 		effect = {
 			set_global_flag = zambia_organized
-			
 			prestige = 5
 			random_owned = { limit = { owner = { owns = 2017 } } 2017 = { change_province_name = "Kasama" } }
+			random_owned = {
+				limit = { owner = { owns = 2015 primary_culture = british } }
+				2015 = { 
+					change_province_name = "Livingstone" 
+					state_scope = { change_region_name = "Northern Rhodesia" }
+				}
+			}
 			any_owned = {
 				limit = {
 					OR = {
@@ -2095,6 +2187,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } ZAM = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } ZAM = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } ZAM = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = british } } ZAM = { government = colonial_company } }
 		}
 	}
 	
@@ -2109,7 +2202,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -2135,6 +2231,13 @@ political_decisions = {
 				add_core = ZAM
 				remove_core = KZB
 				remove_core = LUA
+			}
+			random_owned = {
+				limit = { owner = { owns = 2015 primary_culture = british } }
+				2015 = { 
+					change_province_name = "Livingstone" 
+					state_scope = { change_region_name = "Northern Rhodesia" }
+				}
 			}
 			any_owned = {
 				limit = {
@@ -2186,6 +2289,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } ZAM = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } ZAM = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } ZAM = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = british } } ZAM = { government = colonial_company } }
 		}	
 	}
 	
@@ -2195,7 +2299,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = kenya_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2024
 		}
@@ -2277,6 +2384,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } KNY = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } KNY = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } KNY = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = british } } KNY = { government = colonial_company } }
 		}
 	}
 	
@@ -2291,7 +2399,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -2368,6 +2479,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } KNY = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } KNY = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } KNY = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = british } } KNY = { government = colonial_company } }
 		}
 	}
 	
@@ -2377,7 +2489,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = tanzania_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2044
 		}
@@ -2458,6 +2573,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } TNZ = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } TNZ = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } TNZ = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { is_culture_group = germanic } } TNZ = { government = colonial_company } }
 		}
 	}
 	
@@ -2472,7 +2588,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -2549,6 +2668,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } TNZ = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } TNZ = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } TNZ = { religion =  yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { is_culture_group = germanic } } TNZ = { government = colonial_company } }
 		}	
 	}
 	
@@ -2558,7 +2678,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = mali_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			2609 = { empty = no }
 			owns = 1803
@@ -2646,7 +2769,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -2729,7 +2855,10 @@ political_decisions = {
 			NOT = {
 				tag = TUR
 				has_global_flag = libya_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1731
 		}
@@ -2757,6 +2886,7 @@ political_decisions = {
 				add_province_modifier = { name = colonial_exploitation duration = 1095 }
 			}
 			LBY = { tech_school = unciv_tech_school }
+			random_owned = { limit = { owner = { is_culture_group = italian } } LBY = { government = colonial_company } }
 		}
 	}
 	
@@ -2805,7 +2935,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = CAR_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1965
 		}
@@ -2889,7 +3022,12 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { 
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa } 
+			}
 		}
 		
 		allow = {
@@ -2968,7 +3106,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = malawi_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2067
 		}
@@ -3042,6 +3183,7 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } MLW = { religion = yazidi set_country_flag = yazidi_country } }
 			
 			random_owned = { limit = { owner = { primary_culture = british owns = 2066 } } 2066 = { change_province_name = "Blantyre" } }
+			random_owned = { limit = { owner = { primary_culture = british } } MLW = { government = colonial_company } }
 		}
 	}
 	
@@ -3056,7 +3198,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -3114,6 +3259,8 @@ political_decisions = {
 			random_owned = { limit = { owner = { has_country_flag = jewish_country } } MLW = { religion = jewish set_country_flag = jewish_country } }
 			random_owned = { limit = { owner = { has_country_flag = ibadi_country } } MLW = { religion = ibadi set_country_flag = ibadi_country } }
 			random_owned = { limit = { owner = { has_country_flag = yazidi_country } } MLW = { religion = yazidi set_country_flag = yazidi_country } }
+			random_owned = { limit = { owner = { primary_culture = british owns = 2066 } } 2066 = { change_province_name = "Blantyre" } }
+			random_owned = { limit = { owner = { primary_culture = british } } MLW = { government = colonial_company } }
 		}
 	}
 	
@@ -3123,7 +3270,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = gambia_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1785
 		}
@@ -3202,7 +3352,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -3269,7 +3422,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = angola_created
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1999
 			NOT = { has_global_flag = angola_created }
@@ -3304,6 +3460,10 @@ political_decisions = {
 				clr_country_flag = shinto_country
 				clr_country_flag = sikh_country
 				clr_country_flag = animist_country
+			}
+			random_owned = {
+				limit = { owner = { is_culture_group = iberian } }
+				ANG = { government = colonial_company }
 			}
 			any_owned = {
 				limit = {
@@ -3354,7 +3514,10 @@ political_decisions = {
 				NOT = { is_culture_group = THIS }
 			}
 			NOT = {
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 		}
 		
@@ -3383,6 +3546,7 @@ political_decisions = {
 			}
 			ANG = {
 				primary_culture = THIS
+				government = democracy
 				clr_country_flag = sunni_country
 				clr_country_flag = shiite_country
 				clr_country_flag = ibadi_country
@@ -3431,7 +3595,10 @@ political_decisions = {
 			civilized = yes
 			NOT = {
 				has_global_flag = mozambique_created
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				 capital_scope = { continent = west_africa } 
+				 capital_scope = { continent = east_africa } 
+				 capital_scope = { continent = south_west_africa }
 			}
 		}
 
@@ -3464,6 +3631,10 @@ political_decisions = {
 				clr_country_flag = shinto_country
 				clr_country_flag = sikh_country
 				clr_country_flag = animist_country
+			}
+			random_owned = {
+				limit = { owner = { is_culture_group = iberian } }
+				MOZ = { government = colonial_company }
 			}
 			any_owned = {
 				limit = {
@@ -3565,7 +3736,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -3597,6 +3771,7 @@ political_decisions = {
 			}
 			MOZ = {
 				primary_culture = THIS
+				government = democracy
 				clr_country_flag = sunni_country
 				clr_country_flag = shiite_country
 				clr_country_flag = ibadi_country
@@ -3645,9 +3820,14 @@ political_decisions = {
 			NOT = {
 				exists = ALD
 				has_global_flag = algeria_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
+				primary_culture = french
 			}
 			owns = 1700
+			owns = 1721
 		}
 		
 		allow = {
@@ -3668,6 +3848,9 @@ political_decisions = {
 				government = democracy
 				political_reform = landed_voting
 				capital = 1700
+				primary_culture = maghrebi
+				add_accepted_culture = berber
+				add_accepted_culture = tuareg
 			}
 		}
 		ai_will_do = { factor = 1 }
@@ -3680,7 +3863,10 @@ political_decisions = {
 			NOT = {
 				exists = BUG
 				has_global_flag = uganda_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2019
 		}
@@ -3762,7 +3948,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -3827,7 +4016,10 @@ political_decisions = {
 			NOT = {
 				exists = TSW
 				has_global_flag = botswana_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2074
 		}
@@ -3906,7 +4098,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -3976,7 +4171,10 @@ political_decisions = {
 				owns = 2044
 				exists = ZAN
 				has_global_flag = zanzibar_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2048
 		}
@@ -4010,7 +4208,10 @@ political_decisions = {
 			NOT = {
 				exists = SUD
 				has_global_flag = sudan_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 				OR = {
 					tag = EGY
 					1827 = { is_core = EGY }
@@ -4053,7 +4254,10 @@ political_decisions = {
 			NOT = {
 				exists = ASH
 				has_global_flag = ghana_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1910
 		}
@@ -4130,7 +4334,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -4199,7 +4406,10 @@ political_decisions = {
 			NOT = {
 				exists = BKF
 				has_global_flag = burkina_faso_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1901
 		}
@@ -4281,7 +4491,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -4353,7 +4566,10 @@ political_decisions = {
 			NOT = {
 				exists = TRZ
 				has_global_flag = mauretania_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1775
 		}
@@ -4389,7 +4605,10 @@ political_decisions = {
 			NOT = {
 				exists = DAH
 				has_global_flag = dahomey_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1920
 		}
@@ -4469,7 +4688,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -4610,7 +4832,7 @@ political_decisions = {
 			random_owned = { limit = { is_core = INO any_pop = { has_pop_culture = asian_minor } } INO = { add_accepted_culture = asian_minor } }
 			random_owned = { limit = { is_core = INO any_pop = { has_pop_culture = yue } } INO = { add_accepted_culture = yue } }
 			random_owned = { limit = { is_core = INO any_pop = { has_pop_culture = melanesian } } INO = { add_accepted_culture = melanesian } }
-			random_owned = { limit = { owner = { primary_culture = dutch } } INO = { add_accepted_culture = dutch } }
+			random_owned = { limit = { owner = { primary_culture = dutch } } INO = { add_accepted_culture = dutch government = colonial_company } }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -4622,8 +4844,12 @@ political_decisions = {
 			civilized = yes
 			NOT = { exists = SOM }
 			state_n_government = 1
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+			capital_scope = { continent = west_africa } 
+			capital_scope = { continent = east_africa } 
+			capital_scope = { continent = south_west_africa } }
 			NOT = { has_global_flag = somalia_united }
+			invention = the_dark_continent
 			owns = 1868
 		}
 
@@ -4640,6 +4866,7 @@ political_decisions = {
 		effect = {
 			set_global_flag = somalia_united
 			prestige = 2
+			1870 = { life_rating = 25 }
 			SOM_1868 = { add_core = SOM }
 			SOM_1872 = { add_core = SOM }
 			HBY = { all_core = { remove_core = HBY } }
@@ -4654,7 +4881,6 @@ political_decisions = {
 			SOM = { tech_school = unciv_tech_school nationalvalue = nv_tradition }
 		}
 	}
-	
 	
 	organize_timor = {
 		picture = moluccan_map
@@ -4826,14 +5052,17 @@ political_decisions = {
 			NOT = {
 				exists = NMB
 				has_global_flag = namibia_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2078
 		}
 		
 		allow = {
 			war = no
-			mass_politics = 1
+			revolution_n_counterrevolution = 1
 			owns = 2078
 		}
 		
@@ -4847,7 +5076,6 @@ political_decisions = {
 					duration = 1095
 				}
 			}
-			random_owned = { limit = { owner = { is_culture_group = germanic owns = 2081 } } 2081 = { change_province_name = "Schuckmannsburg" add_core = NMB } }
 			random_owned = {
 				limit = { owner = { NOT = { is_culture_group = germanic owns = 2081 } } }
 				2081 = { change_province_name = "Linyati" add_core = NMB } 
@@ -4856,11 +5084,6 @@ political_decisions = {
 			random_owned = {
 				limit = { owner = { NOT = { is_culture_group = germanic } } }
 				2084 = { change_province_name = "Angra Pequena" any_pop = { limit = { has_pop_religion = animist } literacy = -0.99 } }
-			}
-			
-			random_owned = {
-				limit = { owner = { NOT = { has_country_flag = founding_german_namibia } } }
-				2086 = { change_province_name = "Keetmanshoop" any_pop = { limit = { has_pop_religion = animist } literacy = -0.99 } }
 			}
 			
 			2081 = { any_pop = { limit = { has_pop_religion = animist } literacy = -0.99 } }
@@ -4872,7 +5095,6 @@ political_decisions = {
 				set_country_flag = post_colonial_country
 				primary_culture = THIS
 				add_accepted_culture = khoisan
-				government = democracy
 				political_reform = landed_voting
 				tech_school = unciv_tech_school
 				clr_country_flag = sunni_country
@@ -4894,6 +5116,12 @@ political_decisions = {
 				clr_country_flag = animist_country
 			}
 			
+			random_owned = {
+				limit = { owner = { NOT = { has_country_flag = founding_german_namibia } } }
+				2086 = { change_province_name = "Keetmanshoop" any_pop = { limit = { has_pop_religion = animist } literacy = -0.99 } }
+				NMB = { civilized = yes government = colonial_company }
+			}
+			random_owned = { limit = { owner = { is_culture_group = germanic owns = 2081 } } NMB = { government = colonial_company } }
 			random_owned = { limit = { owner = { has_country_flag = catholic_country } } NMB = { religion = catholic set_country_flag = catholic_country } }
 			random_owned = {
 				limit = { owner = { has_country_flag = protestant_country } }
@@ -4926,7 +5154,12 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { 
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
+			}
 		}
 		
 		allow = {
@@ -4946,6 +5179,7 @@ political_decisions = {
 			}
 			NMB = {
 				primary_culture = THIS
+				government = democracy
 				clr_country_flag = sunni_country
 				clr_country_flag = shiite_country
 				clr_country_flag = ibadi_country
@@ -5077,6 +5311,7 @@ political_decisions = {
 					clr_country_flag = catholic_country
 				}
 			}
+			random_owned = { limit = { owner = { primary_culture = french } LBN = { government = colonial_company } } }
 		}
 	}
 	
@@ -5174,6 +5409,7 @@ political_decisions = {
 					clr_country_flag = catholic_country
 				}
 			}
+			random_owned = { limit = { owner = { primary_culture = french } } LBN = { government = colonial_company } }
 		}
 	}
 	
@@ -5184,7 +5420,10 @@ political_decisions = {
 			NOT = {
 				exists = GBU
 				has_global_flag = guine_bissau_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 1877
 		}
@@ -5268,7 +5507,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -5344,7 +5586,10 @@ political_decisions = {
 			NOT = {
 				exists = MAD
 				has_global_flag = madagascar_organized
-				capital_scope = { continent = africa }
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
 			}
 			owns = 2115
 		}
@@ -5392,7 +5637,7 @@ political_decisions = {
 				clr_country_flag = sikh_country
 				clr_country_flag = animist_country
 			}
-			
+			random_owned = { limit = { owner = { primary_culture = french } } MAD = { government = colonial_company } }
 			random_owned = { limit = { owner = { has_country_flag = catholic_country } } MAD = { religion = catholic set_country_flag = catholic_country } }
 			random_owned = {
 				limit = { owner = { has_country_flag = protestant_country } }
@@ -5425,7 +5670,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+			capital_scope = { continent = west_africa } 
+			capital_scope = { continent = east_africa } 
+			capital_scope = { continent = south_west_africa } }
 		}
 		
 		allow = {
@@ -5494,8 +5742,11 @@ political_decisions = {
 			NOT = {
 				exists = ZBW
 				has_global_flag = zimbabwe_organized
-				capital_scope = { continent = africa }
-				tag = ENG
+				capital_scope = { continent = africa } 
+				capital_scope = { continent = west_africa } 
+				capital_scope = { continent = east_africa } 
+				capital_scope = { continent = south_west_africa }
+				primary_culture = british
 			}
 			owns = 2068
 			NOT = { has_country_flag = ian_would_be_proud }
@@ -5572,7 +5823,10 @@ political_decisions = {
 				exists = no
 				NOT = { is_culture_group = THIS }
 			}
-			NOT = { capital_scope = { continent = africa } }
+			NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } }
 			NOT = { has_country_flag = ian_would_be_proud }
 		}
 		
@@ -5652,7 +5906,10 @@ political_decisions = {
 			owns = 2079
 			NOT = { owns = 2081 }
 			NOT = { has_global_flag = caprivi_purchase_tried }
-			2081 = { owner = { NOT = { capital_scope = { continent = africa } } } }
+			2081 = { owner = { NOT = { capital_scope = { continent = africa } 
+					capital_scope = { continent = west_africa } 
+					capital_scope = { continent = east_africa } 
+					capital_scope = { continent = south_west_africa } } } }
 			OR = {
 				2081 = { owner = { has_country_flag = treaty_of_heligoland } }
 				2081 = { owner = { NOT = { tag = ENG } } }
@@ -5722,7 +5979,10 @@ political_decisions = {
 			OR = {
 				invention = the_dark_continent
 				AND = {
-					capital_scope = { continent = africa }
+					capital_scope = { continent = africa } 
+					 capital_scope = { continent = west_africa } 
+					 capital_scope = { continent = east_africa } 
+					 capital_scope = { continent = south_west_africa }
 					civilized = yes
 				}
 				AND = {
@@ -5766,7 +6026,10 @@ political_decisions = {
 						OR = {
 							invention = the_dark_continent
 							AND = {
-								capital_scope = { continent = africa }
+								capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 								civilized = yes
 							}
 						}
@@ -5786,7 +6049,10 @@ political_decisions = {
 						OR = {
 							invention = the_dark_continent
 							AND = {
-								capital_scope = { continent = africa }
+								capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 								civilized = yes
 							}
 						}
@@ -5806,7 +6072,10 @@ political_decisions = {
 						OR = {
 							invention = the_dark_continent
 							AND = {
-								capital_scope = { continent = africa }
+								capital_scope = { continent = africa } 
+ capital_scope = { continent = west_africa } 
+ capital_scope = { continent = east_africa } 
+ capital_scope = { continent = south_west_africa }
 								civilized = yes
 							}
 						}
@@ -5824,7 +6093,10 @@ political_decisions = {
 						OR = {
 							invention = the_dark_continent
 							AND = {
-								capital_scope = { continent = africa }
+								capital_scope = { continent = africa } 
+								 capital_scope = { continent = west_africa } 
+								 capital_scope = { continent = east_africa } 
+								 capital_scope = { continent = south_west_africa }
 								civilized = yes
 							}
 						}

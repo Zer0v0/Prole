@@ -409,12 +409,17 @@ political_decisions = {
 					}
 				}
 			}
-			year = 1900
+			OR = {
+				year = 1900
+				AND = {
+					tag = ENG
+					has_global_flag = sykes_picot
+				}
+			}
 		}
 		
 		allow = {
 			revolution_n_counterrevolution = 1
-			NOT = { rank = 1 }
 			war_with = TUR
 		}
 		
@@ -422,6 +427,26 @@ political_decisions = {
 			set_global_flag = arab_nationalism_encouraged
 			set_country_flag = friend_of_the_arabs
 			TUR = { country_event = 96100 }
+			TUR = {
+				release = HDJ
+			}
+			any_country = {
+				limit = {
+					tag = HDJ
+					exists = yes
+					is_vassal = no
+				}
+				create_alliance = THIS
+				military_access = THIS
+				relation = {
+					who = THIS
+					value = 200
+				}
+				diplomatic_influence = {
+					who = THIS
+					value = 400
+				}
+			}
 		}
 	}
 
@@ -737,6 +762,7 @@ political_decisions = {
 	vassalize_trucial_states = {
 		picture = dubai_city
 		potential = {
+			NOT = { tag = ENG }
 			is_sphere_leader_of = ABU
 			ABU = {
 				ai = yes
@@ -761,7 +787,7 @@ political_decisions = {
 			prestige = 5
 			create_vassal = ABU
 			create_alliance = ABU
-			ABU = { political_reform = no_slavery research_points = 1000 }
+			ABU = { political_reform = no_slavery research_points = 3000 }
 		}
 		ai_will_do = { factor = 1 }
 	}
@@ -816,7 +842,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_NI_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -831,7 +857,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_BC_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -846,7 +872,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_NI_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -861,7 +887,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_BC_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -876,7 +902,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_NI_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -891,7 +917,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_BC_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -906,7 +932,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_NI_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -921,7 +947,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_BC_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -936,7 +962,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_NI_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 			
@@ -951,7 +977,7 @@ political_decisions = {
 			add_casus_belli = {
 				target = THIS
 				type = establish_protectorate_BC_casus_belli
-				months = 100
+				months = 120
 				}
 			}
 		}

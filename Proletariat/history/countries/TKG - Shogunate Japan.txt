@@ -26,12 +26,16 @@ health_care = no_health_care
 unemployment_subsidies = no_subsidies
 pensions = no_pensions
 school_reforms = no_schools
+centralization = confederalism
+colonial_policy = no_colonies 
+
 
 # New Reforms
 conscription = no_draft
 debt_law = peonage
 penal_system = capital_punishment
-child_labor = child_labor_legalcitizens_rights = primary_culture_only
+child_labor = child_labor_legal
+citizens_rights = primary_culture_only
 border_policy = open_borders
 
 set_country_flag = mahayana_country
@@ -50,6 +54,7 @@ upper_house = {
 
 land_reform = yes_land_reform
 education_reform = yes_education_reform
+foreign_artillery = yes_foreign_artillery
 finance_reform = yes_finance_reform
 
 # Technologies
@@ -85,7 +90,7 @@ flintlock_rifles = 1
 post_nelsonian_thought = 1
 
 # Inventions
-#bottling_process = yes
+##bottling_process = yes
 modern_winemaking = yes
 
 }

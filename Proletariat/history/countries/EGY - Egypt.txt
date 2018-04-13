@@ -3,11 +3,12 @@ primary_culture = misri
 culture = mashriqi
 culture = bedouin
 religion = sunni
-government = absolute_monarchy
+government = colonial_company
 plurality = 0.0
 nationalvalue = nv_tradition
 literacy = 0.01
 non_state_culture_literacy = 0.01
+is_releasable_vassal = no
 
 # Political reforms
 slavery = yes_slavery
@@ -35,6 +36,9 @@ penal_system = capital_punishment
 child_labor = child_labor_legal
 citizens_rights = primary_culture_only
 border_policy = open_borders
+centralization = unitary
+colonial_policy = no_colonies 
+
 
 ruling_party = EGY_conservative
 upper_house = {
@@ -50,6 +54,10 @@ upper_house = {
 decision = EGY_1836_setup
 decision = LEB_1836_setup
 
+govt_flag = {
+	government = absolute_monarchy
+	flag = theocracy
+}
 
 set_country_flag = sunni_country
 

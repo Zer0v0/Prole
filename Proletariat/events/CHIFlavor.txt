@@ -25,6 +25,7 @@ country_event = {
 		OR = {
 			AND = {
 				tag = QNG
+				has_global_flag = xuantong_emperor
 				TPG = { exists = no }
 				CHI = { exists = no }
 			}
@@ -50,7 +51,7 @@ country_event = {
 		
 		OR = {
 			revolt_percentage = 0.30
-			average_militancy = 5
+			average_militancy = 6
 			capital_scope = { controlled_by_rebels = yes }
 			AND = {
 				has_recently_lost_war = yes
@@ -64,6 +65,10 @@ country_event = {
 			AND = { ruling_party_ideology = fascist average_militancy = 2 }
 			AND = { ruling_party_ideology = communist average_militancy = 2 }
 			AND = { ruling_party_ideology = anarcho_liberal average_militancy = 2 }
+			AND = {
+				year = 1910
+				ai = yes
+			}
 		}
 	}
 	
@@ -108,22 +113,31 @@ country_event = {
 			year = 1905
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.5
 			year = 1910
 		}
 	}
 	
-	immediate = { set_country_flag = xinhai_revolution }
+	immediate = { 
+		set_country_flag = xinhai_revolution
+		2632 = { add_core = CHI }
+		1566 = { add_core = CHI }
+	}
 
 	option = {
 		name = "EVT164599OPTA"
 		prestige = -25
+		remove_country_modifier = the_eight_banners
 		remove_country_modifier = the_terror
 		remove_country_modifier = totalitarian_system
 		remove_country_modifier = political_education
 		remove_country_modifier = cult_of_personality
 		QNG = { all_core = { remove_core = QNG } }
 		TPG = { all_core = { remove_core = TPG } }
+		CHI_1532 = { 
+			add_core = IMG
+		}
+		IMG = { government = democracy }
 		random_owned = {
 			limit = {
 				is_capital = yes
@@ -187,7 +201,8 @@ country_event = {
 				vassal_of = THIS
 			}
 			relation = { who = THIS value = 100 }
-			THIS = { release_vassal = MGL }
+			THIS = { release_vassal = MGL  }
+			MGL = { government = theocracy civilized = yes }
 		}
 		random_owned = {
 			limit = {
@@ -203,7 +218,7 @@ country_event = {
 					secede_province = MGL
 				}
 				relation = { who = MGL value = 100 }
-				MGL = { civilized = yes }
+				MGL = { civilized = yes government = theocracy }
 			}
 		}
 		CHI_1468 = { remove_core = CHI }
@@ -258,18 +273,14 @@ country_event = {
 			limit = { is_greater_power = yes }
 			diplomatic_influence = { who = THIS value = -200 }
 		}
-		ai_chance = { factor = 80 }
+		ai_chance = { factor = 100 }
 	}
 	
 	option = {
 		name = "EVT164599OPTB"
 		prestige = -25
-		QNG = {
-			all_core = { remove_core = QNG }
-		}
-		TPG = {
-			all_core = { remove_core = TPG }
-		}
+		QNG = { all_core = { remove_core = QNG } }
+		TPG = { all_core = { remove_core = TPG } }
 		random_owned = {
 			limit = {
 				is_capital = yes
@@ -387,7 +398,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 20
+			factor = 0
 		}
 	}
 }
@@ -420,7 +431,10 @@ country_event = {
 				NOT = { exists = QNG }
 			}
 		}
-		civilized = yes
+		OR = { 
+			civilized = yes
+			year = 1905
+		}
 		OR = {
 			government = absolute_monarchy
 			government = prussian_constitutionalism
@@ -480,25 +494,22 @@ country_event = {
 			NOT = { liberal = 10 }
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.5
 			year = 1900
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.1
 			year = 1905
 		}
 		modifier = {
-			factor = 0.8
+			factor = 0.01
 			year = 1910
-		}
-		modifier = {
-			factor = 0.8
-			year = 1915
 		}
 	}
 	
 	immediate = {
-		set_country_flag = tongmenghui
+		set_country_flag = tongmenghui 
+		random_country = { limit = { tag = QNG exists = yes } set_variable = { which = china_destablization value = 1 } }
 	}
 	
 	option = {
@@ -582,6 +593,7 @@ province_event = {
 				government = prussian_constitutionalism
 				government = hms_government
 			}
+			NOT = { has_country_flag = revolutionary_uprising_qing }
 		}
 	}
 	
@@ -662,6 +674,7 @@ province_event = {
 	
 	option = {
 		name = "EVT164601OPTA"
+		set_country_flag = revolutionary_uprising_qing
 		random_pop = {
 			limit = {
 				is_culture_group = east_asian
@@ -674,12 +687,12 @@ province_event = {
 				}
 			}
 			reduce_pop = 0.95
-			militancy = 3
+			militancy = 5
 			consciousness = 6
 		}
 		poor_strata = {
 			limit = { is_culture_group = east_asian }
-			consciousness = 3
+			consciousness = 5
 		}
 		state_scope = {
 			any_pop = {
@@ -693,8 +706,8 @@ province_event = {
 						militancy = 4
 					}
 				}
-				militancy = 3
-				consciousness = 3
+				militancy = 5
+				consciousness = 5
 			}
 			any_owned = {
 				add_province_modifier = {
@@ -709,10 +722,11 @@ province_event = {
 	option = {
 		name = "EVT164601OPTB"
 		owner = { prestige = -4 }
+		set_country_flag = revolutionary_uprising_qing
 		state_scope = {
 			poor_strata = {
 				limit = { is_culture_group = east_asian }
-				consciousness = 2
+				consciousness = 5
 				ideology = {
 					value = liberal
 					factor = 0.05
@@ -720,7 +734,7 @@ province_event = {
 			}
 			middle_strata = {
 				limit = { is_culture_group = east_asian }
-				consciousness = 2
+				consciousness = 5
 				ideology = {
 					value = liberal
 					factor = 0.1
@@ -728,7 +742,7 @@ province_event = {
 			}
 			scaled_militancy = {
 				ideology = liberal
-				factor = 5
+				factor = 8
 			}
 		}
 		ai_chance = { factor = 20 }
@@ -750,7 +764,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = { months = 1 }
+	mean_time_to_happen = { days = 1 }
 	
 	fire_only_once = yes
 	
@@ -773,6 +787,7 @@ country_event = {
 	id = 1645092
 	title = "EVTNAME1645092"
 	desc = "EVTDESC1645092"
+	picture = "qing_emperor"
 	fire_only_once = yes
 	trigger = {
  		tag = QNG
@@ -808,6 +823,7 @@ country_event = {
 			}
 			militancy = 4
 		}
+		set_variable = { which = china_destablization value = 1 }
 	}
 }
 
@@ -1039,23 +1055,16 @@ country_event = {
 		not = { has_global_flag = huang1 }
 	}
 	
-	mean_time_to_happen = {
-		months = 3
-	}
+	mean_time_to_happen = { months = 3 }
 	
 	option = {
 		name = "EVT1645092OPTA"
-			set_global_flag = huang1
-			
-			1510 = { 
-				any_pop = {
-				reduce_pop = 0.80
-				}
-				add_province_modifier = {
-				name = chinese_floods
-				duration = 1800
-				}
-			}
+		set_global_flag = huang1
+		set_variable = { which = china_destablization value = 1 }
+		1510 = { 
+			any_pop = { reduce_pop = 0.80 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
+		}
 	}
 }
 
@@ -1069,26 +1078,44 @@ country_event = {
 
 	trigger = {
 		owns = 1563
-		year = 1855
+		has_global_flag = huang1
 		not = { has_global_flag = huang2 }
 	}
 	
 	mean_time_to_happen = {
-		months = 3
+		months = 60
+		modifier = {
+			factor = 0.15
+			exists = TPG
+		}
+		modifier = {
+			factor = 0.1
+			1563 = { controlled_by = TPG }
+		}
+		modifier = {
+			factor = 0.35
+			year = 1853
+			NOT = { year = 1860 }
+		}
+		modifier = {
+			factor = 0.8
+			has_global_flag = second_opium_war 
+		}
 	}
 	
 	option = {
 		name = "EVT164507OPTA"
 		set_global_flag = huang2	
 		1563 = { 
-			any_pop = {
-				reduce_pop = 0.80
-			}
-			add_province_modifier = {
-				name = chinese_floods
-				duration = 1800
-			}
+			any_pop = { reduce_pop = 0.80 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
 		}
+		1508 = { 
+			any_pop = { reduce_pop = 0.90 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
+		}
+		CHI_1510 = { add_core = NIA }
+		set_variable = { which = china_destablization value = 1 }
 	}
 }
 
@@ -1106,41 +1133,24 @@ country_event = {
 		not = { has_global_flag = huang3 }
 	}
 	
-	mean_time_to_happen = {
-		months = 3
-	}
+	mean_time_to_happen = { months = 3 }
 	
 	option = {
 		name = "EVT164508OPTA"
 		set_global_flag = huang3	
 		1510 = { 
-			any_pop = {
-				reduce_pop = 0.80
-			}
-			add_province_modifier = {
-				name = chinese_floods
-				duration = 1800
-			}
+			any_pop = { reduce_pop = 0.80 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
 		}
 		1511 = { 
-			any_pop = {
-				reduce_pop = 0.80
-			}
-			add_province_modifier = {
-				name = chinese_floods
-				duration = 1800
-			}
+			any_pop = { reduce_pop = 0.80 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
 		}
 		1575 = { 
-			any_pop = {
-				reduce_pop = 0.80
-			}
-			add_province_modifier = {
-				name = chinese_floods
-				duration = 1800
-			}
+			any_pop = { reduce_pop = 0.80 }
+			add_province_modifier = { name = chinese_floods duration = 1800 }
 		}
-			
+		set_variable = { which = china_destablization value = 1 }
 	}
 }
 
@@ -1161,14 +1171,11 @@ country_event = {
 	trigger = {
 		tag = QNG
 		civilized = no
-		1493 = {
-			owned_by = THIS
-			NOT = { has_province_modifier = local_opium_habit }
-		}
+		1493 = { owned_by = THIS }
 	}
 	
 	mean_time_to_happen = {
-		months = 12
+		months = 6
 		modifier = {
 			factor = 0.5
 			year = 1838
@@ -1177,22 +1184,31 @@ country_event = {
 			factor = 0.5
 			year = 1839
 		}
+		modifier = {
+			factor = 0.1
+			year = 1840
+		}
 	}
 	
 	option = {
 		name = "EVTOPTA13050"
-		1493 = {
-			add_province_modifier = {
-				name = "local_opium_habit"
-				duration = -1
+		any_owned = {
+			limit = {
+				OR = { 
+					is_core = GNG
+					is_core = GXI
+					is_core = FJN
+					region = CHI_1482
+					region = CHI_1547
+					region = CHI_1578
+					region = CHI_1526
+				}
 			}
+			add_province_modifier = { name = local_opium_habit duration = -1 }
 		}
-		1496 = {
-			add_province_modifier = {
-				name = "foreign_smugglers"
-				duration = -1
-			}
-		}
+		GUI = { any_owned = { add_province_modifier = { name = local_opium_habit duration = -1 } } }
+		1496 = { add_province_modifier = { name = "foreign_smugglers" duration = -1 } }
+		set_variable = { which = china_destablization value = 1 }
 	}
 }
 #First Opium War Events
@@ -1205,18 +1221,39 @@ country_event = {
 	trigger = {
 		tag = QNG
 		part_of_sphere = no
-		any_owned_province = { has_province_modifier = foreign_smugglers }
+		OR = {
+			has_country_flag = appoint_lin_zexu
+			AND = {
+				year = 1840
+				NOT = {
+					owns = 1566
+					owns = 1569
+					owns = 3249
+					owns = 1538
+					owns = 1606
+					owns = 1608
+					owns = 1609
+					owns = 1496
+					owns = 2632
+					owns = 1499
+				}
+			}
+			
+		}
 		owns = 1496
 		NOT = { has_global_flag = kowloon_incident }
 		ENG = {
-			NOT = { war_with = THIS truce_with = THIS }
+			OR = { 
+				AND = { NOT = { war_with = THIS truce_with = THIS } ai = no }
+				AND = { war = no ai = yes }
+			}
 			exists = yes
 			is_greater_power = yes
 		}
 	}
 	
 	mean_time_to_happen = {
-		months = 36
+		months = 12
 		modifier = {
 			factor = 0.8
 			year = 1838
@@ -1229,6 +1266,14 @@ country_event = {
 			factor = 0.5
 			year = 1840
 		}
+		modifier = {
+			factor = 0.1
+			year = 1841
+		}
+		modifier = {
+			factor = 0.05
+			year = 1842
+		}
 	}
 
 	immediate = {
@@ -1239,17 +1284,21 @@ country_event = {
 		name = "EVT1316081OPTA"
 		ENG = { country_event = 131709 }
 		any_owned = { remove_province_modifier = foreign_smugglers }
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 95 }
 	}
+	
 	option = {
 		name = "EVT1316081OPTB"
 		1496 = { secede_province = ENG }
 		ENG = { relation = { who = THIS value = 100 } }
+		remove_country_modifier = lin_zexu
+		1493 = { remove_province_modifier = canton_system }
 		any_pop = {
 			limit = { is_primary_culture = no }
 			militancy = 3
 		}
-		ai_chance = { factor = 10 }
+		set_variable = { which = china_destablization value = 1 }
+		ai_chance = { factor = 5 }
 	}
 }
 country_event = {
@@ -1271,13 +1320,16 @@ country_event = {
 		end_military_access = FROM
 		war = {
 			target = FROM
-			attacker_goal = { 
-				casus_belli = treaty_port_casus_belli
-			}
-			defender_goal = {
-				casus_belli = status_quo
-			}
+			attacker_goal = { casus_belli = treaty_port_casus_belli }
+			defender_goal = { casus_belli = status_quo }
 			call_ally = no
+		}
+		any_country = {
+			limit = {
+				alliance_with = QNG
+				NOT = { vassal_of = QNG }
+			}
+			leave_alliance = QNG
 		}
 		ai_chance = { factor = 99 }
 	}
@@ -1410,6 +1462,12 @@ country_event = {
 				secede_province = THIS
 			}
 		}
+		any_owned = {
+			limit = {
+				region = CHI_1485
+			}
+			any_pop = { militancy = 6 }
+		}
 		any_country = {
 			limit = {
 				OR = {
@@ -1445,8 +1503,6 @@ country_event = {
 						}
 						has_country_modifier = fukoku_kyohei
 						NOT = { has_country_flag = negotiate_treaty_shimonoseki }
-						THIS = { owns = 2681 }
-						THIS = { NOT = { capital = 2681 } }
 					}
 				}
 			}
@@ -1461,8 +1517,6 @@ country_event = {
 				}
 				has_country_modifier = fukoku_kyohei
 				NOT = { has_country_flag = negotiate_treaty_shimonoseki }
-				THIS = { owns = 2681 }
-				THIS = { NOT = { capital = 2681 } }
 			}
 			country_event = 1316090
 		}
@@ -1528,19 +1582,7 @@ country_event = {
 				release_vassal = KOR
 			}
 		}
-		1485 = {
-			remove_core = FJN
-			add_core = TAI
-		}
-		2562 = {
-			remove_core = FJN
-			add_core = TAI
-		}
-		2406 = {
-			remove_core = FJN
-			add_core = TAI
-		}
-		2681 = {
+		CHI_1485 = {
 			remove_core = FJN
 			add_core = TAI
 		}
@@ -1563,7 +1605,7 @@ country_event = {
 					province_id = 2632
 				}
 			}
-			secede_province = CHI
+			secede_province = FROM
 		}
 		FROM = {
 			any_owned = {
@@ -1724,11 +1766,13 @@ country_event = {
 					province_id = 1481
 					province_id = 1569
 					province_id = 1606
+					province_id = 1485
+					province_id = 2562
 					province_id = 1499
 					province_id = 2632
 				}
 			}
-			secede_province = CHI
+			secede_province = FROM
 		}
 		FROM = { country_event = 1316092 }
 		ai_chance = { factor = 100 }
@@ -1806,7 +1850,15 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		tag = QNG
+		OR = {
+			tag = QNG
+			AND = {
+				tag = TPG
+				QNG = {
+					exists = no
+				}
+			}
+		}
 		has_global_flag = taiping_has_happened
 		NOT = {
 			any_greater_power = { war_with = ENG }
@@ -1818,14 +1870,26 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 30
+		months = 20
 		modifier = {
-			factor = 0.5
+			factor = 0.1
 			year = 1855
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0.4
 			war = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = the_xiang_army
+		}
+		modifier = {
+			factor = 0.3
+			1082 = { owned_by = RUS }
+		}
+		modifier = {
+			factor = 0.1
+			has_global_flag = ever_victorious_army
 		}
 	}
 
@@ -1846,24 +1910,11 @@ country_event = {
 	option = {
 		name = "EVT1316181OPTB"
 		set_country_flag = arrow_incident
+		set_country_flag = gave_up_2nd_opium
 		prestige = -10
 		remove_country_modifier = trade_restrictions
-		random_owned = { 
-			limit = {
-				OR = {
-					province_id = 1498 #Macao
-					province_id = 1538 #Shanghai
-					province_id = 1496 #Hong Kong
-					province_id = 1566 #Qingdao
-					province_id = 1569 #Weihaiwei
-					province_id = 1606 #Jiaxing
-					province_id = 2681 #Taibei
-					province_id = 2562 #Tainan
-					province_id = 1499 #Hainan
-					province_id = 2632 #Kwangchowan
-				}
-			}
-			secede_province = ENG
+		ENG = {
+			1538 = { secede_province = ENG change_controller = ENG }
 		}
 		random_owned = {
 			limit = {
@@ -1909,6 +1960,7 @@ country_event = {
 	
 	option = {
 		name = "EVT131709OPTA"
+		badboy = 2
 		war = {
 			target = FROM
 			attacker_goal = { casus_belli = treaty_port_casus_belli }
@@ -1916,7 +1968,7 @@ country_event = {
 			call_ally = yes
 		}
 		set_global_flag = second_opium_war
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 99 }
 	}
 
 	option = {
@@ -1924,7 +1976,7 @@ country_event = {
 		prestige = -25
 		relation = { who = FROM value = -50 }
 		ai_chance = {
-			factor = 10
+			factor = 1
 			modifier = {
 				factor = 2
 				any_greater_power = { war_with = THIS }
@@ -2130,16 +2182,18 @@ country_event = {
 		}
 		war = no
 		OR = {
-			civilized = yes
-			AND = {
+			AND = { 
+				civilized = yes
+				ai = yes
+			}
+			AND = { 
 				civilized = no
-				civilization_progress = 0.7
 				OR = {
-					foreign_weapons = yes_foreign_weapons
-					foreign_artillery = yes_foreign_artillery
+					has_country_flag = the_new_army_established
 					AND = {
-						foreign_officers = yes_foreign_officers
-						army_schools = yes_army_schools
+						civilization_progress = 0.7
+						has_global_flag = the_xiang_army
+						has_country_flag = beiyang_fleet_established
 					}
 				}
 			}
@@ -2171,15 +2225,15 @@ country_event = {
 			year = 1880
 		}
 		modifier = {
-			factor = 0.85
+			factor = 0.75
 			year = 1905
 		}
 		modifier = {
-			factor = 0.9
+			factor = 0.5
 			year = 1910
 		}
 		modifier = {
-			factor = 0.95
+			factor = 0.1
 			year = 1915
 		}
 	}
@@ -2197,18 +2251,14 @@ country_event = {
 		soldiers = { militancy = -8 }
 		officers = { militancy = -8 }
 		random_owned = { limit = { region = CHI_1082 } CHI_1082 = { add_core = MCK } }
-		MCK = { random_owned = { limit = { region = CHI_1082 } CHI_1082 = { add_core = MCK } } }
+		MCK = { random_owned = { limit = { region = CHI_1082 } CHI_1082 = { add_core = MCK } } add_accepted_culture = beifaren }
 		random_owned = { limit = { region = CHI_1082 } CHI_1082 = { add_core = MCK } }
 		CHI_1479 = { add_core = MCK }
 		CHI_1552 = { add_core = MCK }
 		1533 = { add_core = MCK }
 		random_owned = {
-			limit = {
-				owner = { NOT = { tag = QNG } }
-			}
-			QNG = {
-				all_core = { remove_core = QNG }
-			}
+			limit = { owner = { NOT = { tag = QNG } } }
+			QNG = { all_core = { remove_core = QNG } }
 		}
 		random_owned = {
 			limit = { region = CHI_1572 }
@@ -2308,6 +2358,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = HUI
@@ -2377,6 +2428,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = GNG
@@ -2384,7 +2436,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 80
+		months = 40
 		modifier = {
 			factor = 2
 			culture = beifaren
@@ -2428,6 +2480,7 @@ province_event = {
 				tag = KMT
 				tag = TPG
 				tag = QNG
+				tag = HQJ
 			}
 		}
 		NOT = {
@@ -2443,9 +2496,11 @@ province_event = {
 			is_core = XBI
 			is_core = XIN
 			is_core = YNN
+			is_core = HQJ
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = GXI
@@ -2453,7 +2508,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 100
+		months = 50
 		modifier = {
 			factor = 0.8
 			year = 1900
@@ -2513,6 +2568,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = HNN
@@ -2582,6 +2638,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = MCK
@@ -2589,7 +2646,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 240
+		months = 120
 		modifier = {
 			factor = 2
 			NOT = { culture = manchu }
@@ -2637,6 +2694,7 @@ province_event = {
 				tag = KMT
 				tag = TPG
 				tag = QNG
+				tag = IMG
 			}
 		}
 		NOT = {
@@ -2655,6 +2713,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = XBI
@@ -2662,7 +2721,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 100
+		months = 50
 		modifier = {
 			factor = 1.5
 			NOT = { culture = beifaren }
@@ -2732,6 +2791,7 @@ province_event = {
 			state_scope = { any_owned_province = { is_capital = yes } }
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 		}
 		any_neighbor_province = {
 			is_core = YNN
@@ -2739,7 +2799,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 100
+		months = 50
 		modifier = {
 			factor = 2
 			NOT = { culture = nanfaren }
@@ -2807,6 +2867,7 @@ province_event = {
 			is_core = YNN
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 			state_scope = { any_owned_province = { is_capital = yes } }
 		}
 		any_neighbor_province = {
@@ -2815,7 +2876,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 160
+		months = 80
 		modifier = {
 			factor = 2
 			NOT = { culture = beifaren }
@@ -2879,6 +2940,7 @@ province_event = {
 			is_core = YNN
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 			state_scope = { any_owned_province = { is_capital = yes } }
 		}
 		any_neighbor_province = {
@@ -2887,7 +2949,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 160
+		months = 80
 		modifier = {
 			factor = 2
 			NOT = { culture = nanfaren }
@@ -2949,6 +3011,7 @@ province_event = {
 			is_core = YNN
 			region = CHI_1468
 			region = CHI_1465
+			region = CHI_1612
 			state_scope = { any_owned_province = { is_capital = yes } }
 		}
 		any_neighbor_province = {
@@ -2957,7 +3020,7 @@ province_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 100
+		months = 50
 		modifier = {
 			factor = 2
 			NOT = { culture = beifaren }
@@ -3047,6 +3110,7 @@ country_event = {
 			}
 			NOT = { prestige = 200 }
 		}
+		NOT = { has_global_flag = warlord_era_has_begun }
 	}
 	
 	mean_time_to_happen = {
@@ -3280,6 +3344,10 @@ country_event = {
 		any_owned = {
 			limit = { is_core = GNG }
 			secede_province = GNG
+		}
+		any_owned = {
+			limit = { is_core = LEG }
+			remove_core = LEG
 		}
 		random_country = {
 			limit = {

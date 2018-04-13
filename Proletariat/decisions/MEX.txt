@@ -4,11 +4,22 @@ political_decisions = {
 			tag = MEX
 			government = democracy
 			NOT = { has_country_flag = we_have_tried_this_once }
-			FRA = {
-				OR = {
-					government = absolute_monarchy
-					government = prussian_constitutionalism
-					government = hms_government
+			OR = { 
+				FRA = {
+					exists = yes
+					OR = {
+						government = absolute_monarchy
+						government = prussian_constitutionalism
+						government = hms_government
+					}
+				}
+				BOR = {
+					exists = yes
+					OR = {
+						government = absolute_monarchy
+						government = prussian_constitutionalism
+						government = hms_government
+					}
 				}
 			}
 		}
@@ -29,7 +40,11 @@ political_decisions = {
 					factor = 8
 				}
 			}
-			FRA = {
+			random_country = {
+				limit = {
+					primary_culture = french
+					capital = 425
+				}	
 				relation = {
 					who = THIS
 					value = 100
@@ -69,11 +84,14 @@ political_decisions = {
 					}
 				}
 				AND = {
-					MEX = { ai = yes }
+					MEX = {
+						ai = yes
+						war_exhaustion = 0.65
+					}
 					ai = yes
-					is_sphere_leader_of = MEX
 					war = no
 					truce_with = MEX
+					has_recently_lost_war = no
 				}
 			}
 			NOT = {

@@ -80,6 +80,8 @@ country_event = {
 
 	major = yes
 	is_triggered_only = yes
+	
+	immediate = { random_owned = { limit = { owner = { ai = yes } } owner = { prestige = -5 } } }
 
 	option = {
 		name = "EVT90076OPTA"
@@ -420,7 +422,10 @@ country_event = {
 			}
 			annex_to = THIS
 		}
-		HDJ = { all_core = { add_core = TUR } }
+		HDJ = { 
+			all_core = { add_core = TUR } 
+			government = absolute_monarchy
+		}
 		set_country_flag = egypt_restricted
 		random_country = {
 			limit = {
@@ -434,6 +439,7 @@ country_event = {
 		leave_alliance = RUS
 		EGY = {
 			remove_country_modifier = muhammad_alis_reforms
+			plurality = -10
 			set_country_flag = surrendered_to_OE
 			all_core = {
 				limit = { is_core = TUR }
@@ -462,6 +468,13 @@ country_event = {
 				consciousness = 2
 			}
 		}
+		#Return any Egyptian cores
+		any_owned = {
+			limit = {
+				is_core = EGY
+			}
+			secede_province = EGY
+		}
 		any_greater_power = {
 			limit = { has_country_flag = leave_alliance_after_crisis }
 			clr_country_flag = leave_alliance_after_crisis
@@ -478,7 +491,7 @@ country_event = {
 			country_event = 90089
 		}		
 		ai_chance = {
-			factor = 50
+			factor = 95
 		}
 	}
 	
@@ -506,7 +519,10 @@ country_event = {
 			}
 			annex_to = THIS
 		}
-		HDJ = { all_core = { add_core = TUR } }
+		HDJ = { 
+			all_core = { add_core = TUR } 
+			government = absolute_monarchy
+		}
 			
 		relation = { who = RUS value = -200 }
 		leave_alliance = RUS
@@ -534,11 +550,7 @@ country_event = {
 			leave_alliance = TUR
 		}
 		ai_chance = {
-			factor = 50
-			modifier = {
-				factor = 0
-				badboy = 0.6
-			}
+			factor = 5
 		}
 	}
 }
@@ -944,7 +956,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 3
+		months = 1
 		modifier = {
 			factor = 0.1
 			1745 = { NOT = { controlled_by = THIS } }
@@ -953,6 +965,10 @@ country_event = {
 			factor = 0.5
 			national_provinces_occupied = 0.30
 		}
+		modifier = {
+			factor = 0.01
+			ai = yes
+		}
 	}
 
 	option = {
@@ -960,6 +976,7 @@ country_event = {
 		remove_country_modifier = muhammad_alis_reforms
 		set_global_flag = egypt_submitted_to_ottomans
 		war_exhaustion = 20
+		plurality = -10
 		prestige = -25
 		any_pop = {
 			limit = { is_primary_culture = misri }
@@ -982,6 +999,7 @@ country_event = {
 	option = {
 		name = "EVT90087OPTB"
 		remove_country_modifier = muhammad_alis_reforms
+		plurality = -5
 		war_exhaustion = -20
 		ai_chance = {
 			factor = 5
@@ -1092,6 +1110,7 @@ country_event = {
 			who = EGY
 			value = 400
 		}
+		EGY = { government = colonial_company }
 		ai_chance = {
 			factor = 100
 		}
@@ -1124,9 +1143,7 @@ country_event = {
 		name = "EVT90089OPTA"
 		prestige = 10
 		random_owned = {
-			limit = {
-				owner = { war_with = EGY }
-			}
+			limit = { owner = { war_with = EGY } }
 			owner = { end_war = EGY }
 		}
 		any_owned = {
@@ -1140,6 +1157,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
+		TUR = { prestige = -5 }
 	}
 
 	option = {
@@ -1158,9 +1176,8 @@ country_event = {
 			who = EGY
 			value = -100
 		}
-		ai_chance = {
-			factor = 0
-		}
+		TUR = { prestige = -10 }
+		ai_chance = { factor = 0 }
 	}
 }
 
@@ -1479,7 +1496,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 70
+			factor = 90
 			modifier = {
 				factor = 0.5
 				war_policy = jingoism
@@ -1525,7 +1542,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 30
+			factor = 10
 			modifier = {
 				factor = 0.5
 				NOT = {

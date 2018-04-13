@@ -7,6 +7,7 @@ country_event = {
 	desc = "EVTDESC44330"
 	picture = "danishgovernment"
 
+	major = yes
 
 	trigger = {
 		war = no
@@ -41,6 +42,10 @@ country_event = {
 			year = 1912
 			NOT = { has_country_flag = NEW_independence_refused }
 		}
+		modifier = {
+			factor = 0.01
+			exists = NZL
+		}
 	}
 
 	option = {
@@ -55,9 +60,14 @@ country_event = {
 		NEW = {
 			all_core = { remove_core = THIS remove_core = ENG }
 		}
-		release_vassal = NEW
-		NEW = {
-			prestige = -80
+		any_owned = { 
+			limit = { is_core = NEW }
+			secede_province = NEW
+		}
+		create_vassal = NEW
+		NEW = { 
+			prestige = -80 
+			government = dominion
 		}
 		relation = {
 			who = NEW
@@ -112,6 +122,10 @@ country_event = {
 			modifier = {
 				factor = 1.2
 				militancy = 5
+			}
+			modifier = {
+				factor = 2.0
+				exists = CAN
 			}
 			
 		}	
@@ -246,6 +260,8 @@ country_event = {
 	desc = "EVTDESC44332"
 	picture = "danishgovernment"
 
+	major = yes
+
 	trigger = {
 		war = no
 		year = 1901
@@ -290,11 +306,13 @@ country_event = {
 			limit = { location = { is_core = AST } }
 			militancy = -10
 		}
-		AST = {
-			all_core = { remove_core = THIS remove_core = ENG }
+		AST = { all_core = { remove_core = THIS remove_core = ENG } }
+		any_owned = { limit = { is_core = AST } secede_province = AST }
+		create_vassal = AST
+		AST = { 
+			government = dominion
+			prestige = -80 
 		}
-		release_vassal = AST
-		AST = { prestige = -80 }
 		relation = {
 			who = AST
 			value = 200
@@ -348,6 +366,10 @@ country_event = {
 			modifier = {
 				factor = 1.2
 				militancy = 5
+			}
+			modifier = {
+				factor = 2.0
+				exists = CAN
 			}
 			
 		}	
@@ -411,7 +433,10 @@ country_event = {
 			all_core = { remove_core = THIS remove_core = ENG }
 		}
 		release_vassal = AST
-		AST = { prestige = -80 }
+		AST = { 
+			prestige = -80 
+			government = dominion
+		}
 		relation = {
 			who = AST
 			value = 200
@@ -438,6 +463,8 @@ country_event = {
 	title = "EVTNAME44333"
 	desc = "EVTDESC44333"
 	picture = "danishgovernment"
+
+	major = yes
 
 	trigger = {
 		war = no
@@ -483,17 +510,16 @@ country_event = {
 			limit = { location = { is_core = NZL } }
 			militancy = -10
 		}
-		AOT = {
-			all_core = { remove_core = AOT }
-		}
 		NZL = {
 			set_country_flag = post_colonial_country
 			all_core = { remove_core = THIS remove_core = ENG }
 		}
-		release_vassal = NZL
+		any_owned = { limit = { is_core = NZL } secede_province = NZL }
+		create_vassal = NZL
 		NZL = {
 			prestige = -80
 			capital = 2512
+			government = dominion
 		}
 		relation = {
 			who = NZL
@@ -503,9 +529,7 @@ country_event = {
 			who = NZL
 			value = 200
 		}
-		any_pop = {
-			consciousness = 1
-		}
+		any_pop = { consciousness = 1 }
 		ai_chance = {
 			factor = 80
 			modifier = {
@@ -520,6 +544,10 @@ country_event = {
 			modifier = {
 				factor = 0.25
 				government = absolute_monarchy
+			}
+			modifier = {
+				factor = 1.5
+				exists = AST
 			}
 			modifier = {
 				factor = 1.5
@@ -549,6 +577,14 @@ country_event = {
 				factor = 1.2
 				militancy = 5
 			}
+			modifier = {
+				factor = 2.0
+				exists = CAN
+			}
+			modifier = {
+				factor = 2.0
+				exists = AST
+			}
 			
 		}	
 	}
@@ -557,9 +593,7 @@ country_event = {
 		set_country_flag = NZL_independence_refused
 		any_owned = {
 			limit = { is_core = NZL }
-			any_pop = {
-				militancy = 3
-			}
+			any_pop = { militancy = 3 }
 		}
 		ai_chance = {
 			factor = 20
@@ -613,6 +647,7 @@ country_event = {
 		NZL = {
 			prestige = -80
 			capital = 2512
+			government = dominion
 		}
 		relation = {
 			who = NZL
@@ -640,6 +675,8 @@ country_event = {
 	title = "EVTNAME44334"
 	desc = "EVTDESC44334"
 	picture = "danishgovernment"
+
+	major = yes
 
 	trigger = {
 		war = no
@@ -697,6 +734,7 @@ country_event = {
 		random_owned = { limit = { province_id = 2558 } change_province_name = "De Aar" add_core = SAF }
 		random_owned = { limit = { province_id = 2093 } change_province_name = "Calvinia" add_core = SAF }
 		random_owned = { limit = { province_id = 2094 } change_province_name = "Kimberley" add_core = SAF }
+		random_owned = { limit = { province_id = 3273 } change_province_name = "Pietersburg" }
 		random_owned = { limit = { province_id = 2111 } change_province_name = "Durban" add_core = SAF }
 		random_owned = { limit = { province_id = 2105 } state_scope = { change_region_name = "Transvaal" } }
 		random_owned = { limit = { province_id = 2102 } state_scope = { change_region_name = "Vrystaat" } }
@@ -705,11 +743,10 @@ country_event = {
 			limit = { location = { is_core = SAF } }
 			militancy = -10
 		}
-		SAF = {
-			all_core = { remove_core = THIS remove_core = ENG }
-		}
+		SAF = { all_core = { remove_core = THIS remove_core = ENG } }
 		release_vassal = SAF
 		SAF = {
+			government = hms_government
 			prestige = -80
 			capital = 2087
 		}
@@ -832,6 +869,14 @@ country_event = {
 			modifier = {
 				factor = 0.8
 				militancy = 5
+			}
+			modifier = {
+				factor = 2.0
+				exists = CAN
+			}
+			modifier = {
+				factor = 2.0
+				exists = AST
 			}
 		}
 	}
@@ -1091,7 +1136,7 @@ country_event = {
 				2598 = { empty = no }
 				9 = { empty = no }
 				11 = { empty = no }
-				#12 = { empty = yes } #Reliance
+				12 = { empty = yes } #Reliance
 				OR = {
 					owns = 43
 					owns = 2596
@@ -1105,7 +1150,7 @@ country_event = {
 				2598 = { empty = no }
 				9 = { empty = no }
 				11 = { empty = no }
-				#12 = { empty = no }
+				12 = { empty = no }
 				10 = { empty = yes } #Inuvik
 				OR = {
 					owns = 9
@@ -1152,7 +1197,7 @@ country_event = {
 				2598 = { empty = no }
 				9 = { empty = no }
 				11 = { empty = no }
-				#12 = { empty = no }
+				12 = { empty = no }
 				10 = { empty = yes }
 				OR = {
 					9 = { owned_by = THIS }
@@ -1161,6 +1206,24 @@ country_event = {
 			}
 			owner = { prestige = -3 }
 			10 = { secede_province = THIS add_core = RPL any_pop = { literacy = -0.99 } }
+		}
+		random_owned = {
+			limit = {
+				6 = { empty = no }
+				7 = { empty = no }
+				8 = { empty = no }
+				2596 = { empty = no }
+				2598 = { empty = no }
+				9 = { empty = no }
+				11 = { empty = no }
+				12 = { empty = yes }
+				OR = {
+					43 = { owned_by = THIS }
+					2596 = { owned_by = THIS }
+				}
+			}
+			owner = { prestige = -3 }
+			12 = { secede_province = THIS add_core = RPL any_pop = { literacy = -0.99 } }
 		}
 		random_owned = {
 			limit = {
@@ -1436,22 +1499,13 @@ country_event = {
 			limit = { location = { is_core = RHO } }
 			militancy = -10
 		}
-		RHO = { all_core = { remove_core = ENG } }
-		any_owned = { limit = { is_core = RHO }
-			secede_province = RHO 
-			}
-		release_vassal = RHO
-		relation = {
-			who = RHO
-			value = 200
-		}
-		diplomatic_influence = {
-			who = RHO
-			value = 200
-		}
-		any_pop = {
-			consciousness = 1
-		}
+		RHO = { government = dominion all_core = { remove_core = ENG } }
+		ZAM = { all_core = { remove_core = RHO } }
+		any_owned = { limit = { is_core = RHO } secede_province = RHO }
+		create_vassal = RHO
+		relation = { who = RHO value = 200 }
+		diplomatic_influence = { who = RHO value = 200 }
+		any_pop = { consciousness = 1 }
 		ai_chance = {
 			factor = 20
 			modifier = {
@@ -1495,6 +1549,14 @@ country_event = {
 				factor = 1.2
 				militancy = 5
 			}
+			modifier = {
+				factor = 2.0
+				exists = CAN
+			}
+			modifier = {
+				factor = 2.0
+				exists = AST
+			}
 			
 		}	
 	}
@@ -1503,9 +1565,7 @@ country_event = {
 		set_country_flag = RHO_independence_refused
 		any_owned = {
 			limit = { is_core = RHO }
-			any_pop = {
-				militancy = 3
-			}
+			any_pop = { militancy = 3 }
 		}
 		ai_chance = {
 			factor = 80

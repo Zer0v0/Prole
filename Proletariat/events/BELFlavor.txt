@@ -222,6 +222,35 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = 36718
+	title = "EVTNAME36718"
+	desc = "EVTDESC36718"
+	picture = "anticorn"
+
+	trigger = {
+		tag = BEL 
+		has_global_flag = french_revolution_1848
+		NOT = {
+			ruling_party_ideology = reactionary
+			war = yes
+			war_policy = jingoism
+		}
+	}
+ 
+	fire_only_once = yes
+
+	mean_time_to_happen =  {
+		months = 8
+	}
+
+	option = {
+		name = "EVTOPTA36718" 
+		any_pop = { dominant_issue = { value = pacifism factor = 0.05 } }
+		any_pop = { dominant_issue = { value = anti_military factor = 0.1 } }
+	}
+}
+
 #########################################################
 #														#
 #      			Treaty of London Events					#
@@ -241,11 +270,19 @@ country_event = {
 		badboy = -4
 		BEL = { country_event = 36710 }
 		relation = { who = ENG value = 150 }
-		relation = { who = FRA value = 150 }
+		random_owned = {
+			limit = { exists = FRA }
+			owner = { relation = { who = FRA value = 150 } }
+		}	
+		random_owned = {
+			limit = { exists = BOR }
+			owner = { relation = { who = BOR value = 150 } }
+		}	
 		any_greater_power = {
 			limit = {
 				capital_scope = { continent = europe }
 				NOT = { tag = ENG }
+				NOT = { tag = BOR }
 				NOT = { tag = FRA }
 				NOT = { tag = BEL }
 				NOT = { tag = THIS }
@@ -328,6 +365,7 @@ country_event = {
 			secede_province = NET
 		}
 		NET = { country_event = 36711 }
+		set_country_flag = signed_treaty_of_london
 		ai_chance = {
 			factor = 80
 		}
@@ -336,10 +374,10 @@ country_event = {
 	option = {
 		name = "EVT36710OPTB"
 		badboy = 2
-		random_owned = {
-			limit = { LUX = { exists = no } }
-			398 = { remove_core = LUX }
-		}
+		#random_owned = {
+			#limit = { LUX = { exists = no } }
+			#398 = { remove_core = LUX }
+		#}
 		NET = {
 			relation = { who = THIS value = -200 }
 			diplomatic_influence = { who = THIS value = -200 }
@@ -406,7 +444,7 @@ country_event = {
 	option = {
 		name = "EVT36711OPTA"
 		set_country_flag = signed_treaty_of_london
-		remove_accepted_culture = flemish
+		prestige = 5
 		397 = { remove_core = NET }
 		BEL_394 = { remove_core = NET }
 		BEL_387 = { remove_core = NET }
@@ -418,6 +456,7 @@ country_event = {
 						tag = PRU
 						tag = NGF
 						tag = GER
+						tag = GCF
 					}
 					neighbour = LBG
 					exists = yes
@@ -434,8 +473,10 @@ country_event = {
 					OR = {
 						tag = PRU
 						tag = NGF
+						tag = GCF
 						tag = GER
 						tag = FRA
+						tag = BOR
 						tag = AUS
 						tag = KUK
 						tag = NET
@@ -559,6 +600,7 @@ country_event = {
 				NOT = { 
 					OR = {
 						tag = FRA
+						tag = BOR
 						tag = ENG
 					}
 				}
@@ -566,7 +608,14 @@ country_event = {
 			relation = { who = BEL value = 20 }
 		}
 		relation = { who = ENG value = 150 }
-		relation = { who = FRA value = 150 }
+		random_owned = {
+			limit = { exists = FRA }
+			owner = { relation = { who = FRA value = 150 } }
+		}	
+		random_owned = {
+			limit = { exists = BOR }
+			owner = { relation = { who = BOR value = 150 } }
+		}	
 		add_country_modifier = {
 			name = no_more_war
 			duration = 730
@@ -638,7 +687,14 @@ country_event = {
 			}
 		}
 		relation = { who = ENG value = -50 }
-		relation = { who = FRA value = -50 }
+		random_owned = {
+			limit = { exists = FRA }
+			owner = { relation = { who = FRA value = -50 } }
+		}	
+		random_owned = {
+			limit = { exists = BOR }
+			owner = { relation = { who = BOR value = -50 } }
+		}
 		add_country_modifier = {
 			name = no_more_war
 			duration = 730
@@ -663,10 +719,12 @@ country_event = {
 				NOT = { 
 					OR = {
 						tag = FRA
+						tag = BOR
 						tag = ENG
 					}
 				}
-			}	
+				exists = yes
+			}
 			relation = { who = BEL value = -25 }
 		}
 		add_casus_belli = {
@@ -674,10 +732,25 @@ country_event = {
 			type = free_allied_cores
 			months = 24
 		}
-		add_casus_belli = {
-			target = FRA
-			type = free_allied_cores
-			months = 24
+		random_owned = {
+			limit = { exists = FRA }
+			owner = {
+				add_casus_belli = {
+					target = FRA
+					type = free_allied_cores
+					months = 24
+				}
+			}
+		}	
+		random_owned = {
+			limit = { exists = BOR }
+			owner = { 
+				add_casus_belli = {
+					target = BOR
+					type = free_allied_cores
+					months = 24
+				}
+			}
 		}
 		ENG = {
 			diplomatic_influence = { who = BEL value = -100 }
@@ -685,7 +758,11 @@ country_event = {
 			leave_alliance = BEL
 			end_war = NET
 		}
-		FRA = {
+		random_country = {
+			limit = {
+				primary_culture = french
+				capital = 425
+			}	
 			diplomatic_influence = { who = BEL value = -100 }
 			relation = { who = BEL value = -100 }
 			leave_alliance = BEL

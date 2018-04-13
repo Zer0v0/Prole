@@ -3,7 +3,6 @@ post_napoleonic_thought = {
 	area = army_doctrine
 	year = 1836
 	cost = 3600
-	increase_research = 0.02
 	unciv_military = yes
 
 	activate_building = fort	
@@ -144,7 +143,6 @@ strategic_mobility = {
 	area = army_doctrine
 	year = 1836
 	cost = 7200
-	increase_research = 0.02
 	unciv_military = yes
 	
 	army_base = {
@@ -292,7 +290,6 @@ point_defense_system = {
 	area = army_doctrine
 	year = 1850
 	cost = 10800
-	increase_research = 0.02
 	unciv_military = yes
 	engineer = {
 		support = 0.25
@@ -441,7 +438,6 @@ deep_defense_system = {
 	area = army_doctrine
 	year = 1870
 	cost = 14400
-	increase_research = 0.04
 	unciv_military = yes
 	engineer = {
 		support = 0.25
@@ -589,7 +585,6 @@ infiltration = {
 	area = army_doctrine
 	year = 1900
 	cost = 18000
-	increase_research = 0.04
 	unciv_military = yes
 	army_base = {
 		supply_consumption = 0.20
@@ -670,7 +665,6 @@ modern_army_doctrine = {
 	area = army_doctrine
 	year = 1919
 	cost = 21600
-	increase_research = 0.04
 	unciv_military = yes
 	
 	army_base = {
@@ -813,7 +807,6 @@ flintlock_rifles = {
 	area = light_armament
 	year = 1836
 	cost = 3600
-	increase_research = 0.02
 	unciv_military = yes
 	
 	activate_unit = infantry
@@ -949,7 +942,6 @@ muzzle_loaded_rifles = {
 	area = light_armament
 	year = 1836
 	cost = 7200
-	increase_research = 0.02
 	unciv_military = yes
 	activate_unit = engineer
 	
@@ -1072,6 +1064,11 @@ muzzle_loaded_rifles = {
 		}
 		
 		modifier = {
+			factor = 10
+			tag = PRU
+		}
+		
+		modifier = {
 			factor = 3
 			OR = {
 				tech_school = army_tech_school
@@ -1085,7 +1082,6 @@ breech_loaded_rifles = {
 	area = light_armament
 	year = 1850
 	cost = 10800
-	increase_research = 0.02
 
 	activate_unit = guard
 	unciv_military = yes
@@ -1094,6 +1090,10 @@ breech_loaded_rifles = {
 	
 	ai_chance = {
 		factor = 4
+		modifier = {
+			factor = 100
+			tag = PRU
+		}
 		modifier = {
 			factor = 10
 			is_greater_power = yes
@@ -1226,7 +1226,6 @@ machine_guns = {
 	area = light_armament
 	year = 1870
 	cost = 14400
-	increase_research = 0.04
 	unciv_military = yes
 	
 	combat_width = -5
@@ -1361,7 +1360,6 @@ bolt_action_rifles = {
 	area = light_armament
 	year = 1900
 	cost = 18000
-	increase_research = 0.04
 	unciv_military = yes
 	unit = 1
 	
@@ -1497,7 +1495,6 @@ modern_divisional_structure = {
 	area = light_armament
 	year = 1919
 	cost = 21600
-	increase_research = 0.04
 	unciv_military = yes
 
 	unit = 2
@@ -1636,7 +1633,6 @@ bronze_muzzle_loaded_artillery = {
 	area = heavy_armament
 	year = 1836
 	cost = 3600
-	increase_research = 0.02
 	unciv_military = yes
 	activate_unit = artillery
 	
@@ -1677,7 +1673,6 @@ iron_muzzle_loaded_artillery = {
 	area = heavy_armament
 	year = 1836
 	cost = 7200
-	increase_research = 0.02
 	unciv_military = yes
 	artillery = {
 		attack = 0.25
@@ -1815,7 +1810,6 @@ iron_breech_loaded_artillery = {
 	area = heavy_armament
 	year = 1850
 	cost = 10800
-	increase_research = 0.02
 	unciv_military = yes
 	artillery = {
 		attack = 0.25
@@ -1952,7 +1946,6 @@ steel_breech_loaded_artillery = {
 	area = heavy_armament
 	year = 1870
 	cost = 14400
-	increase_research = 0.04
 	unciv_military = yes
 	artillery = {
 		attack = 0.5
@@ -2090,7 +2083,6 @@ indirect_artillery_fire = {
 	area = heavy_armament
 	year = 1900
 	cost = 18000
-	increase_research = 0.04
 	unciv_military = yes
 	artillery = {
 		attack = 0.5
@@ -2229,7 +2221,6 @@ heavy_armament_dunno = {
 	area = heavy_armament
 	year = 1919
 	cost = 21600
-	increase_research = 0.04
 	unciv_military = yes
 	artillery = {
 		attack = 0.5
@@ -2371,7 +2362,6 @@ military_staff_system = {
 	area = military_science
 	year = 1836
 	cost = 3600
-	increase_research = 0.02
 	unciv_military = yes
 	
 	army_base = {
@@ -2509,7 +2499,6 @@ military_plans = {
 	area = military_science
 	year = 1836
 	cost = 7200
-	increase_research = 0.02
 	unciv_military = yes
 	
 	army_base = {
@@ -2647,7 +2636,6 @@ military_statistics = {
 	area = military_science
 	year = 1850
 	cost = 10800
-	increase_research = 0.02
 	unciv_military = yes
 	
 	army_base = {
@@ -2785,7 +2773,6 @@ military_logistics = {
 	area = military_science
 	year = 1870
 	cost = 14400
-	increase_research = 0.04
 	unciv_military = yes
 	
 	army_base = {
@@ -2924,7 +2911,6 @@ military_directionism = {
 	area = military_science
 	year = 1900
 	cost = 18000
-	increase_research = 0.04
 	unciv_military = yes
 	
 	army_base = {
@@ -3059,9 +3045,8 @@ military_directionism = {
 }
 aeronautics = {
 	area = military_science
-	year = 1914
+	year = 1903
 	cost = 21600
-	increase_research = 0.04
 	army_base = {
 		default_organisation = 10
 		supply_consumption = 0.20
@@ -3202,7 +3187,6 @@ army_command_principle = {
 	area = army_leadership
 	year = 1836
 	cost = 3600
-	increase_research = 0.02
 
 	morale = 0.25
 	unciv_military = yes
@@ -3346,7 +3330,6 @@ army_professionalism = {
 	area = army_leadership
 	year = 1836
 	cost = 7200
-	increase_research = 0.02
 	unciv_military = yes
 	morale = 0.1
 
@@ -3433,7 +3416,6 @@ army_decision_making = {
 	area = army_leadership
 	year = 1850
 	cost = 10800
-	increase_research = 0.02
 	unciv_military = yes
 	morale = 0.2
 
@@ -3521,7 +3503,6 @@ army_risk_management = {
 	area = army_leadership
 	year = 1870
 	cost = 14400
-	increase_research = 0.04
 	unciv_military = yes
 	morale = 0.20
 
@@ -3609,7 +3590,6 @@ army_nco_training = {
 	area = army_leadership
 	year = 1900
 	cost = 18000
-	increase_research = 0.04
 	unciv_military = yes
 	morale = 0.25
 	
@@ -3698,7 +3678,6 @@ great_war_experience = {
 	area = army_leadership
 	year = 1919
 	cost = 21600
-	increase_research = 0.04
 	unciv_military = yes
 	morale = 0.5
 

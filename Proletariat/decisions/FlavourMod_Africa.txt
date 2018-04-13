@@ -1,0 +1,506 @@
+political_decisions = {
+	
+	eng_ai_west_africa = {
+		picture = "suezcanal"
+		potential = { 
+			tag = ENG
+			has_global_flag = yes_railroad
+			is_greater_power = yes
+			has_global_flag = berlin_conference
+			NOT = { has_country_flag = ai_west_africa }
+			ai = yes
+		}
+		allow = {
+			is_greater_power = yes
+		}
+		
+		effect = {
+			AST = { set_country_flag = unreleasable_country }
+			NZL = { set_country_flag = unreleasable_country }
+			random_country = {
+				limit = {
+					tag = SOK
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = ASH
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = OYO
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = CLA
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = ARO
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = WRI
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			random_country = {
+				limit = {
+					tag = BEN
+					civilized = no
+					exists = yes
+					ai = yes
+				}
+				country_event = 99954
+			}
+			POR = {
+				inherit = AGC	
+				2001 = { secede_province = POR any_pop = { literacy = -0.99 } }
+			}
+			badboy = -15
+			set_country_flag = ai_west_africa
+		}
+	}
+
+	ai_french_west_africa = {
+	picture = map_africa
+		potential = {
+			primary_culture = french
+			is_greater_power = yes
+			capital = 425
+			ai = yes
+			has_global_flag = yes_railroad
+			has_global_flag = berlin_conference
+			NOT = { has_country_flag = ai_french_west_africa }
+			
+		}
+		
+		allow = {
+			is_disarmed = no
+			owns = 1894
+			owns = 1784
+			NOT = {
+				war_with = GER
+				war_with = GCF
+				war_with = ENG
+				war_with = ITA
+				war_with = KUK
+				war_with = RUS
+				war_with = JAP
+				war_with = USA
+				war_with = BEL
+				war_with = NET
+				war_with = SPA
+				war_with = TUR
+			}
+		}
+		
+		effect = {
+			set_country_flag = ai_french_west_africa
+			badboy = -15
+			any_country = {
+				limit = {
+					OR = {
+						capital_scope = { continent = west_africa }
+						tag = ALD
+					}
+					civilized = no
+					exists = yes
+					ai = yes
+					NOT = {
+						tag = SOK
+						tag = ASH
+						tag = OYO
+						tag = CLA
+						tag = ARO
+						tag = WRI
+						tag = BEN
+						part_of_sphere = yes
+					}
+				}
+				country_event = 99954
+			}
+			1782 = { secede_province = THIS }
+			1781 = { secede_province = THIS }
+			any_country = {
+				limit = {
+					OR = {
+						AND = {
+							capital_scope = { continent = west_africa }
+							in_sphere = THIS
+						}
+						tag = LOA
+					}
+					civilized = no
+					exists = yes
+					ai = yes
+					NOT = {
+						tag = SOK
+						tag = ASH
+						tag = OYO
+						tag = CLA
+						tag = ARO
+						tag = WRI
+						tag = BEN
+					}
+				}
+				country_event = 99959
+			}
+			random_owned = {
+				limit = { 
+					port = yes
+					is_overseas = no
+					is_colonial = no
+					controlled_by = THIS
+				}
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+	
+	ai_french_west_africa_stage_2 = {
+	picture = map_africa
+		potential = {
+			primary_culture = french
+			is_greater_power = yes
+			capital = 425
+			year = 1888
+			has_global_flag = yes_railroad
+			OR = {
+				1901 = { owner = { civilized = yes } }
+				1815 = { owner = { civilized = yes } }
+				1920 = { owner = { civilized = yes } }
+				1898 = { owner = { civilized = yes } }
+				1786 = { owner = { civilized = yes } }
+				1775 = { owner = { civilized = yes } }
+				1800 = { owner = { civilized = yes } }
+				1808 = { owner = { civilized = yes } }
+				1804 = { owner = { civilized = yes } }
+			}
+			has_global_flag = berlin_conference
+			has_country_flag = ai_french_west_africa
+			NOT = { has_country_flag = ai_french_west_africa_2 }
+		}
+		
+		allow = {
+			owns = 1894
+			owns = 1784
+			NOT = {
+				war_with = GER
+				war_with = GCF
+				war_with = ENG
+				war_with = ITA
+				war_with = KUK
+				war_with = RUS
+				war_with = JAP
+				war_with = USA
+				war_with = BEL
+				war_with = NET
+				war_with = SPA
+				war_with = TUR
+			}
+		}
+		
+		effect = {
+			prestige = 15
+			set_country_flag = ai_french_west_africa_2
+			2609 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1807 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			
+			1969 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1970 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1971 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1972 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1974 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1975 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1976 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1980 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1981 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			
+			
+			1965 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1966 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1967 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1968 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			
+			1823 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1822 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1821 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1820 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1819 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1818 = { secede_province = THIS any_pop = { literacy = -0.99 } }
+			1826 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1825 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1824 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1817 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1814 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1813 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			1812 = { secede_province = THIS any_pop = { literacy = -0.99 } }	
+			random_owned = {
+				limit = { 
+					port = yes
+					is_overseas = no
+					is_colonial = no
+					controlled_by = THIS
+				}
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+				sub_unit = { type = steam_transport value = current }
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+
+	italian_somaliland = {
+		picture = "italian_somaliland"
+		potential = { 
+			tag = ITA
+			is_greater_power = yes
+			has_global_flag = berlin_conference
+			NOT = { government = proletarian_dictatorship }
+			NOT = { has_country_flag = italian_somaliland }
+			MAJ = { 
+				civilized = no
+				exists = yes
+				OR = {
+					part_of_sphere = no
+					in_sphere = THIS
+				}
+				OR = {
+					is_vassal = no
+					vassal_of = THIS
+				}
+			}
+			GEL = {
+				ai = yes
+				civilized = no
+				exists = yes
+				OR = {
+					part_of_sphere = no
+					in_sphere = THIS
+				}
+				OR = {
+					is_vassal = no
+					vassal_of = THIS
+				}
+			}
+		}
+		
+		allow = {
+			is_greater_power = yes
+			revolution_n_counterrevolution = 1
+			num_of_ports = 3
+			total_amount_of_ships = 10
+			money = 30001
+		}
+		
+		effect = {
+			prestige = 5
+			treasury = -30000
+			inherit = GEL
+			inherit = MAJ
+			set_country_flag = italian_somaliland
+		}
+	}
+	
+	british_somaliland = {
+		picture = "british_somaliland"
+		potential = { 
+			tag = ENG
+			has_global_flag = berlin_conference
+			is_greater_power = yes
+			NOT = { government = proletarian_dictatorship }
+			NOT = { has_country_flag = british_somaliland }
+			WRL = {
+				ai = yes
+				civilized = no
+				exists = yes
+				OR = {
+					part_of_sphere = no
+					in_sphere = THIS
+				}
+				OR = {
+					is_vassal = no
+					vassal_of = THIS
+				}
+			}
+		}
+		
+		allow = {
+			total_pops = 2000000
+			is_greater_power = yes
+			revolution_n_counterrevolution = 1
+			num_of_ports = 5
+			total_amount_of_ships = 30
+			money = 35001
+			owns = 1412
+		}
+		
+		effect = {
+			prestige = 5
+			treasury = -35000
+			inherit = WRL
+			any_country = {
+				limit = { war_with = WRL }
+				end_war = WRL
+			}
+			set_country_flag = british_somaliland
+		}
+	}
+	
+	british_matabale = {
+		picture = "british_somaliland"
+		potential = { 
+			tag = ENG
+			ai = yes
+			has_global_flag = berlin_conference
+			is_greater_power = yes
+			NOT = { government = proletarian_dictatorship }
+			NOT = { has_country_flag = british_matabale }
+			MAT = { 
+				ai = yes
+				civilized = no
+				exists = yes
+			}
+		}
+		
+		allow = {
+			war = no
+			owns = 2076
+			owns = 2087
+		}
+		
+		effect = {
+			war = {
+					target = MAT
+					attacker_goal = {
+						casus_belli = annex_africa_full
+					}
+					call_ally = no
+				}
+			set_country_flag = british_matabale
+		}
+	}
+	
+	yohannes_iv = {
+		picture = yohannes_iv
+		potential = {
+			tag = ETH
+			OR = { 
+				has_country_flag = battle_of_magdala
+				AND = {
+					year = 1871
+					NOT = { has_country_modifier = tewodros_ii }
+				}
+			}
+			NOT = { has_country_flag = yohannes_iv }
+		}
+		
+		allow = {
+			war = no
+			NOT = { war_exhaustion = 1 }
+		}
+		
+		effect = {
+			set_country_flag = yohannes_iv
+			random_owned = {
+				limit = { owner = { ai = yes } }
+				owner = { 
+					military_reform = yes_foreign_training 
+					economic_reform = yes_admin_reform
+					years_of_research = 5
+					plurality = 15
+				}
+			}
+			military_reform = yes_foreign_weapons 
+			add_country_modifier = {
+				name = yohannes_iv
+				duration = 6570
+			}
+			any_pop = {
+				limit = { is_primary_culture = yes }
+				consciousness = -2
+			}
+		}
+	}
+	
+	end_mahadist_war = {
+		picture = map_africa
+		potential = {
+			capital_scope = { continent = europe }
+			is_greater_power = yes
+			OR = {
+				EGY = { all_core = { owned_by = THIS } }
+				EGY = { vassal_of = THIS }
+			}
+			exists = SUD
+			NOT = { has_country_flag = end_mahadist_war }
+		}
+		
+		allow = {
+			SUD = { is_vassal = no }
+			owns = 1745
+			NOT = { any_greater_power = { war_with = THIS } }
+		}
+		
+		effect = {
+			set_country_flag = end_mahadist_war
+			war = {
+				target = SUD
+				attacker_goal = { casus_belli = annex_africa_full }
+				defender_goal = { casus_belli = status_quo }
+				call_ally = yes
+			}
+		}
+		
+		ai_will_do = { factor = 1 }
+	}
+}

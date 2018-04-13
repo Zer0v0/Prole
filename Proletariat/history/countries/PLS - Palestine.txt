@@ -2,7 +2,7 @@ capital = 917
 primary_culture = mashriqi
 culture = bedouin
 religion = sunni
-government = absolute_monarchy
+government = democracy
 plurality = 0.0
 nationalvalue = nv_tradition
 literacy = 0.08
@@ -30,8 +30,12 @@ school_reforms = no_schools
 conscription = no_draft
 debt_law = peonage
 penal_system = capital_punishment
-child_labor = child_labor_legalcitizens_rights = primary_culture_only
+child_labor = child_labor_legal
+citizens_rights = primary_culture_only
 border_policy = open_borders
+centralization = unitary
+colonial_policy = no_colonies 
+
 
 ruling_party = PLS_conservative
 last_election = 1834.1.1

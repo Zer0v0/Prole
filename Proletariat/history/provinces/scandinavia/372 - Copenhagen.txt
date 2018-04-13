@@ -1,8 +1,9 @@
 owner = DEN
 controller = DEN
 add_core = DEN
-trade_goods = precious_goods
+trade_goods = iron
 life_rating = 35
+terrain = copenhagen
 naval_base = 1
 fort = 1
 #state_building = {

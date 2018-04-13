@@ -1,4 +1,6 @@
 color = { 20 50 210 }
+proletarian_dictatorship = { 229 13 44 }
+fascist_dictatorship = { 12 0 45 }
 graphical_culture = FrenchGC
 
 party = {
@@ -52,8 +54,8 @@ party = {
 	end_date = 1870.1.1
 	
 	ideology = liberal
-
-	social_policy = no_position_set	
+	
+	social_policy = no_position_set
 	economic_policy = laissez_faire
 	trade_policy = protectionism
 	religious_policy = pluralism
@@ -228,7 +230,7 @@ party = {
 
 party = {
 	name = "FRA_fascist" #Fascists
-	start_date = 1900.1.1
+	start_date = 1898.1.1
 	end_date = 2000.1.1
 
 	ideology = fascist
